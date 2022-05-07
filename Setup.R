@@ -1,5 +1,3 @@
-
-
 # Clone branch.
 library(usethis)
 create_from_github("tcweiss/Advanced-Pro",
@@ -16,4 +14,3 @@ pr_push()
 
 
 # Finally, restart R. You should have a Git tab in Rstudio.
-#
