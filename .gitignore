@@ -42,4 +42,5 @@ vignettes/*.pdf
 
 # Mac Junk
 .DS_Store
+.Rproj.user
 
