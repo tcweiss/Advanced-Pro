@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# Clone branch.
-=======
 
 ##############
 ###  SETUP  ##
@@ -9,7 +6,6 @@
 # 1. If something seems messed up, delete the project directory on your laptop.
 # Next, delete the repo on your own Github account. Just set up the project from scratch again using this code:
 
->>>>>>> cf151ec6294138db408678c5955d039d9bf9bafe
 library(usethis)
 create_from_github("tcweiss/Advanced-Pro",
                    fork = TRUE,
@@ -39,13 +35,3 @@ pr_pull_upstream()
 # your own Github branch to "main". To do this, run:
 pr_push()
 
-
-<<<<<<< HEAD
-# Finally, restart R. You should have a Git tab in Rstudio.
-
-# Hallo Thomas! Was geht?
-
-library(tools) # library 'tools'
-=======
-
->>>>>>> cf151ec6294138db408678c5955d039d9bf9bafe
