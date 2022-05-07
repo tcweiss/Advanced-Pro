@@ -21,9 +21,9 @@ pr_push()
 # created above. DO NOT CHOOSE "MAIN".
 
 
-#################
-###  WORKLFOW  ##
-#################
+##################
+###  WORKLFOW  ###
+##################
 
 # Whenever you open the project, first pull from "main":
 pr_merge_main()
