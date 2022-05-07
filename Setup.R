@@ -26,7 +26,7 @@ pr_push()
 #################
 
 # Whenever you open the project, first pull from "main":
-pr_pull_upstream()
+pr_merge_main()
 
 # Once you made some changes, click on the "Git" tab and tick everything. Click
 # on "Commit" and enter a message. Click "Push" to send it to your own branch on
