@@ -37,7 +37,11 @@ vignettes/*.pdf
 
 # R Environment Variables
 .Renviron
+<<<<<<< HEAD
 
 
 # Mac Junk
 .DS_Store
+=======
+.Rproj.user
+>>>>>>> 87ceec5ce67142ab99f69114a335df18c3bb999b
