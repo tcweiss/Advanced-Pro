@@ -7,7 +7,7 @@ create_from_github("tcweiss/Advanced-Pro",
 
 # In new project, create a new branch with a sensitive name.
 library(usethis)
-pr_init(branch = "thomas")
+pr_init(branch = "")
 
 # Run this to activate the branch.
 pr_push()
