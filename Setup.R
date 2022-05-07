@@ -9,24 +9,16 @@
 library(usethis)
 create_from_github("tcweiss/Advanced-Pro",
                    fork = TRUE,
-<<<<<<< HEAD
                    destdir = "/Users/duerr/OneDrive/Documents/Ausbildung/HSG/FS22/Programming/Advanced-Pro",
-=======
-                   destdir = "",
->>>>>>> cf151ec6294138db408678c5955d039d9bf9bafe
                    protocol = "https")
 
 # 2. Once a window opens with the new project, run this:
 library(usethis)
-<<<<<<< HEAD
 pr_init(branch = "samuel")
-=======
-pr_init(branch = "")
 pr_push()
 
 # Click on the "Git" tab and make sure that you have selected the branch you
 # created above. DO NOT CHOOSE "MAIN".
->>>>>>> cf151ec6294138db408678c5955d039d9bf9bafe
 
 
 #################
