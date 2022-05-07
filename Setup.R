@@ -3,7 +3,7 @@
 # Clone branch.
 library(usethis)
 create_from_github("tcweiss/Advanced-Pro",
-                   fork = FALSE,
+                   fork = TRUE,
                    destdir = "/Users/thomasweiss/Desktop/Uni/Advanced Programming/Code",
                    protocol = "https")
 
