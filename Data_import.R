@@ -3,6 +3,7 @@ library(tidyverse)
 library(quantmod)
 library(tidyquant)
 library(rvest)
+library(magrittr)
 
 
 ################
