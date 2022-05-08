@@ -186,8 +186,8 @@ get_forecasts <- function(x) {
 
 
 # Get some data. (Note: Takes ~20mins for whole SP500. Don't do it for all
-# stocks at the same time, or the website might refuse access.)
-get_forecasts(c('MSFT', 'BRK-B', 'TSLA'))
+# stocks at once, or the website might refuse access.)
+get_forecasts(c('MSFT', 'BRK-B', 'TSLA', "HMST"))
 
 
 
