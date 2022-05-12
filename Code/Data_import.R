@@ -86,7 +86,7 @@ sp500 <- tq_index("SP500") %>%
 
 # Get stock data. Input either single string or vector of
 # strings. Returns xts object.
-prices <- get_prices(sp500,
+prices <- get_prices(sp500$symbol,
                      from_date = "2019-01-01",
                      to_date = "2020-12-31",
                      ohlc = "Close")
