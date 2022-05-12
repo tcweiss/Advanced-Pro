@@ -136,7 +136,7 @@ server <- function(input, output) {
 
     returns <- prices_df %>%
       group_by(symbol) %>%
-      tq_transmute(select = adjusted, mutate_fun = periodReturn, period = "daily", type = "log") %>%
+      tq_transmute(select = close, mutate_fun = periodReturn, period = "daily", type = "log") %>%
       pivot_wider(names_from = symbol, values_from = daily.returns) %>%
       tk_xts()
 
