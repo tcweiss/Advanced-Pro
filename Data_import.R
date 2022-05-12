@@ -3,7 +3,6 @@ library(tidyverse)
 library(quantmod)
 library(tidyquant)
 library(rvest)
-library(magrittr)
 
 
 ################
@@ -112,7 +111,6 @@ get_forecasts <- function(x) {
   preds <- x %>%
             unique() %>%
             mutate(ticker = gsub("\\.", "", symbol),
-                   ticker = gsub("-", "", symbol),
                    ticker = str_to_lower(ticker),
                    url = paste0('https://money.cnn.com/quote/forecast/forecast.html?symb=', ticker),
                    text = rep(NA_character_, nrow(x)),
@@ -186,8 +184,17 @@ get_forecasts <- function(x) {
 
 
 # Get some data. (Note: Takes ~20mins for whole SP500. Don't do it for all
-# stocks at once, or the website might refuse access.)
-get_forecasts(c('MSFT', 'BRK-B', 'TSLA'))
+# stocks at the same time, or the website might refuse access.)
+get_forecasts(c('MSFT', 'BRKB', 'TSLA'))
+
+
+
+
+
+
+
+
+
 
 
 
