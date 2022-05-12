@@ -9,6 +9,7 @@ library(shinythemes)
 library(plotly)
 library(tidyverse)
 library(tidyquant)
+library(timetk)
 
 # Load data.
 prices_df <- readRDS("app_data/prices_df.RDS")
@@ -28,7 +29,7 @@ choices <- readRDS("app_data/choices.RDS")
 ui <- fluidPage(#theme = shinytheme("cyborg"),
 
   # Title
-  titlePanel("My Tech Stock Portfolio"),
+  titlePanel("Investing@HSG"),
 
   # Sidebar
   sidebarLayout(
@@ -39,7 +40,7 @@ ui <- fluidPage(#theme = shinytheme("cyborg"),
                    inputId = "stocks",
                    label = h4("Stocks"),
                    choices = choices,
-                   selected = prices_df$symbol,
+                   selected = prices_df$symbol[prices_df$symbol == "AAPL"],
                    options = list(`actions-box` = TRUE),
                    multiple = T
                  ),
@@ -58,7 +59,11 @@ ui <- fluidPage(#theme = shinytheme("cyborg"),
 
     # Plot results
     mainPanel(
-      plotlyOutput("plot",height=800)
+        tabsetPanel(
+          tabPanel("History", plotlyOutput("plot",height=800)),
+          tabPanel("Porfolio Weights", plotOutput("weights"), height = 800),
+          tabPanel("Efficient Frontier", plotOutput("ef"), height = 800)
+      )
     )
   )
 )
@@ -128,7 +133,92 @@ server <- function(input, output) {
         )
       )
     })
+
+    returns <- prices_df %>%
+      group_by(symbol) %>%
+      tq_transmute(select = adjusted, mutate_fun = periodReturn, period = "daily", type = "log") %>%
+      pivot_wider(names_from = symbol, values_from = daily.returns) %>%
+      tk_xts()
+
+    mu <- colMeans(returns)
+    cov <- cov(returns)*252
+
+    num_port <- 1000
+
+    all_wts <- matrix(nrow = num_port,
+                      ncol = length(input$stocks))
+
+    all_port_returns <- vector("numeric", length = num_port)
+    all_port_risk <- vector("numeric", length = num_port)
+    all_port_sr <- vector("numeric", length = num_port)
+
+    for (i in seq_along(all_port_returns)) {
+
+      wts <- runif(length(input$stocks))
+      wts_norm <- wts/sum(wts)
+
+      # Storing weight in the matrix
+      all_wts[i,] <- wts_norm
+
+      # Portfolio returns
+
+      port_ret <- ((sum(wts_norm * mu) + 1)^252) - 1
+
+      # Storing Portfolio Returns values
+      all_port_returns[i] <- port_ret
+
+
+      # Creating and storing portfolio risk
+      port_sd <- sqrt(t(wts_norm) %*% (cov  %*% wts_norm))
+      all_port_risk[i] <- port_sd
+
+      sr <- port_ret/port_sd
+      all_port_sr[i] <- sr
+
+    }
+
+    port_values <- tibble(Return = all_port_returns, Risk = all_port_risk, Sharpe = all_port_sr)
+    all_wts <- tk_tbl(all_wts)
+    colnames(all_wts) <- colnames(returns)
+    port_values <- tk_tbl(cbind(all_wts, port_values))
+
+    min_var <- port_values[which.min(port_values$Risk), ]
+    max_sr <- port_values[which.max(port_values$Sharpe), ]
+
+    output$weights <- renderPlotly({
+      print(
+        ggplotly(min_var %>%
+                   gather(1:length(names(returns)), key = Asset,
+                          value = Weights) %>%
+                   ggplot(aes(x = fct_reorder(Asset,Weights), y = Weights, fill = Asset)) +
+                   geom_bar(stat = 'identity') +
+                   theme_minimal() +
+                   labs(x = 'Assets', y = 'Weights', title = "Minimum Variance Portfolio Weights") +
+                   scale_y_continuous(labels = scales::percent)))
+      })
+
+
+    output$ef <- renderPlotly({
+      print(
+        ggplotly(port_values %>%
+      ggplot(aes(x = Risk, y = Return, color = Sharpe)) +
+      geom_point() +
+      theme_classic() +
+      scale_y_continuous(labels = scales::percent) +
+      scale_x_continuous(labels = scales::percent) +
+      labs(x = 'Annualized Risk',
+           y = 'Annualized Returns',
+           title = "Portfolio Optimization & Efficient Frontier") +
+      geom_point(aes(x = Risk,
+                     y = Return), data = min_var, color = 'red') +
+      geom_point(aes(x = Risk,
+                     y = Return), data = max_sr, color = 'red')))
+    })
+
   })
+
+
+
 }
 
 # Run the application
