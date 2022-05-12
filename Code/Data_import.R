@@ -228,6 +228,9 @@ choices <- names$symbol
 names(choices) <- names$company
 
 
+# Save in data folder.
+
+
 ##############################################################
 
 
