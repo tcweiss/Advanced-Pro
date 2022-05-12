@@ -2,7 +2,6 @@
 ####### A shiny app for monitoring a stock portfolio and comparing stock performance #######
 ############################################################################################
 
-
 # Import libraries
 library(shiny)
 library(shinyWidgets)
@@ -11,8 +10,10 @@ library(plotly)
 library(tidyverse)
 library(tidyquant)
 
-
-
+# Load data.
+prices_df <- readRDS("app_data/prices_df.RDS")
+bench <- readRDS("app_data/bench.RDS")
+choices <- readRDS("app_data/choices.RDS")
 
 
 

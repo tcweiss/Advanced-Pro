@@ -7,7 +7,10 @@ library(quantmod)
 library(tidyquant)
 library(rvest)
 library(magrittr)
-library(ichimoku) # for converting xts to dataframe
+library(ichimoku)
+
+# Set working directory (folder on your machine where project is located).
+setwd("~/Desktop/Uni/Advanced Programming/Code/Advanced-Pro")
 
 
 
@@ -228,7 +231,12 @@ choices <- names$symbol
 names(choices) <- names$company
 
 
-# Save in data folder.
+# Save used by app in data folder (make sure to set your wd to the parent
+# directory).
+saveRDS(prices_df, file = "portfolio_selection/app_data/prices_df.RDS")
+saveRDS(bench, file = "portfolio_selection/app_data/bench.RDS")
+saveRDS(choices, file = "portfolio_selection/app_data/choices.RDS")
+
 
 
 ##############################################################
