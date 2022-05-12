@@ -79,10 +79,9 @@ get_prices <- function(x, from_date, to_date, ohlc) {
 
 # Get tickers and names of SP500.
 sp500 <- tq_index("SP500") %>%
-  select(symbol) %>%
+  select(symbol, company) %>%
   unique() %>%
   mutate(symbol = gsub("\\.", "-", symbol)) %>%
-  pull(symbol) %>%
   suppressMessages()
 
 # Get stock data. Input either single string or vector of
