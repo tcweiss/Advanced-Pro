@@ -37,7 +37,7 @@ ui <- fluidPage(#theme = shinytheme("cyborg"),
                  pickerInput(
                    inputId = "stocks",
                    label = h4("Stocks"),
-                   choices = unique(prices_df$symbol),
+                   choices = choices,
                    selected = prices_df$symbol,
                    options = list(`actions-box` = TRUE),
                    multiple = T
