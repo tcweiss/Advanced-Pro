@@ -13,32 +13,6 @@ library(tidyquant)
 
 
 
-# The user needs to input a prefered stock symbol; this symbol will be saved in the variable "tickers"
-tickers <- c("GRVY","SE","PLTR","U","NET","SNOW","MDB")
-benchmarks <- c("^NDX","^GSPC")
-
-# The data (Stock prices) will be saved in the variable "prices"
-prices <- tq_get(tickers,
-                 get  = "stock.prices",
-                 from = today()-months(12),
-                 to   = today(),
-                 complete_cases = F) %>%
-  select(symbol,date,close)
-
-
-
-# The data will be saved in the variable "bench"
-bench <- tq_get(benchmarks,
-                get  = "stock.prices",
-                from = today()-months(12),
-                to   = today()) %>%
-  select(symbol,date,close)
-
-
-
-
-
-
 
 
 
@@ -63,15 +37,8 @@ ui <- fluidPage(#theme = shinytheme("cyborg"),
                  pickerInput(
                    inputId = "stocks",
                    label = h4("Stocks"),
-                   choices = c(
-                     "Gravity"       = tickers[1],
-                     "Sea Limited"   = tickers[2],
-                     "Palantir"      = tickers[3],
-                     "Unity"         = tickers[4],
-                     "Cloudflare"    = tickers[5],
-                     "Snowflake"     = tickers[6],
-                     "MongoDB"       = tickers[7]),
-                   selected = tickers,
+                   choices = unique(prices_df$symbol),
+                   selected = prices_df$symbol,
                    options = list(`actions-box` = TRUE),
                    multiple = T
                  ),
@@ -107,42 +74,42 @@ server <- function(input, output) {
   # server logic based on user input
   observeEvent(c(input$period,input$stocks,input$benchmark), {
 
-    prices <- prices %>%
+    prices_df <- prices_df %>%
       filter(symbol %in% input$stocks)
 
     if (input$period == 1) {
-      prices <- prices %>%
+      prices_df <- prices_df %>%
         filter(
           date >= today()-months(1)) }
 
     if (input$period == 2) {
-      prices <- prices %>%
+      prices_df <- prices_df %>%
         filter(date >= today()-months(3)) }
 
     if (input$period == 3) {
-      prices <- prices %>%
+      prices_df <- prices_df %>%
         filter(date >= today()-months(6)) }
 
     if (input$period == 5) {
-      prices <- prices %>%
+      prices_df <- prices_df %>%
         filter(year(date) == year(today())) }
 
     if (input$benchmark == 1) {
       bench <- bench %>%
         filter(symbol=="^GSPC",
-               date >= min(prices$date))
-      prices <- rbind(prices,bench) }
+               date >= min(prices_df$date))
+      prices_df <- rbind(prices_df,bench) }
 
     if (input$benchmark == 2) {
       bench <- bench %>%
         filter(symbol=="^NDX",
-               date >= min(prices$date))
-      prices <- rbind(prices,bench) }
+               date >= min(prices_df$date))
+      prices_df <- rbind(prices_df,bench) }
 
     # Create plot
     output$plot <- renderPlotly({
       print(
-        ggplotly(prices %>%
+        ggplotly(prices_df %>%
                    group_by(symbol) %>%
                    mutate(init_close = if_else(date == min(date),close,NA_real_)) %>%
                    mutate(value = round(100 * close / sum(init_close,na.rm=T),1)) %>%
@@ -150,7 +117,7 @@ server <- function(input, output) {
                    ggplot(aes(date, value,colour = symbol)) +
                    geom_line(size = 1, alpha = .9) +
                    # uncomment the line below to show area under curves
-                   #geom_area(aes(fill=symbol),position="identity",alpha=.2) +
+                   # geom_area(aes(fill=symbol),position="identity",alpha=.2) +
                    theme_minimal(base_size=16) +
                    theme(axis.title=element_blank(),
                          plot.background = element_rect(fill = "black"),
