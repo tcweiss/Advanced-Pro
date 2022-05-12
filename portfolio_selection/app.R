@@ -25,7 +25,7 @@ choices <- readRDS("app_data/choices.RDS")
 # UI
 #-------------------------------------------------------
 
-ui <- fluidPage(#theme = shinytheme("cyborg"),
+ui <- fluidPage(theme = shinytheme("cosmo"),
 
   # Title
   titlePanel("My Tech Stock Portfolio"),
@@ -39,7 +39,7 @@ ui <- fluidPage(#theme = shinytheme("cyborg"),
                    inputId = "stocks",
                    label = h4("Stocks"),
                    choices = choices,
-                   selected = prices_df$symbol,
+                   selected = prices_df$symbol[prices_df$symbol == 'AAPL'],
                    options = list(`actions-box` = TRUE),
                    multiple = T
                  ),
