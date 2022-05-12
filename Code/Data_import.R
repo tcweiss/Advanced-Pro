@@ -1,9 +1,72 @@
+#### Samuel und Sebastian Test####
 
+
+# Import libraries
 library(tidyverse)
 library(quantmod)
 library(tidyquant)
 library(rvest)
 library(magrittr)
+library(ichimoku) # for converting xts to dataframe
+
+
+
+
+# The data will be saved in the variable "bench"
+benchmarks <- c("^NDX","^GSPC") # Nasdaq100 and SP500
+bench <- tq_get(benchmarks,
+                get  = "stock.prices",
+                from = today()-months(12),
+                to   = today()) %>%
+  select(symbol,date,close)
+
+
+
+
+# --> GET PRICES WITH THOMAS-FUNCTION
+
+
+
+# Edit prices
+prices_df <- xts_df(prices, keep.attrs = TRUE) # convert xts to dataframe
+
+names(prices_df)[1] <- "date" # rename first column name
+
+names(prices_df)[names(prices_df) == "BRK.B"] <- "BRK-B" # rename column
+names(prices_df)[names(prices_df) == "BF.B"] <- "BF-B" # renamce column
+
+prices_df <- filter(prices_df, prices_df$AAPL >= 0) # filter only values greater than 0
+
+
+prices_df <- pivot_longer(prices_df, all_of(SP500$symbol), names_to = "symbol", values_to = "close")
+prices_df <- prices_df[order(prices_df$symbol),] # order by alphabetical order of symbol
+
+
+
+
+
+# Merge prices_df and SP500
+prices_df <- merge(prices_df, SP500, by="symbol")
+
+
+
+
+
+# FOR TESTING WE SUBSET THE DATAFRAME 'prices_df'
+#prices_df <- prices_df[1:12650,]
+
+
+
+
+##############################################################
+
+
+
+
+
+
+
+
 
 
 ################
@@ -78,18 +141,24 @@ get_prices <- function(x, from_date, to_date, ohlc) {
 
 
 # Get tickers and names of SP500.
-sp500 <- tq_index("SP500") %>%
-  select(symbol) %>%
+SP500 <- tq_index("SP500") %>%
+  select(symbol, company) %>%
   unique() %>%
   mutate(symbol = gsub("\\.", "-", symbol)) %>%
-  pull(symbol) %>%
   suppressMessages()
+
+
+
+
+
+
+
 
 # Get stock data. Input either single string or vector of
 # strings. Returns xts object.
-prices <- get_prices(sp500,
-                     from_date = "2019-01-01",
-                     to_date = "2020-12-31",
+prices <- get_prices(SP500$symbol,
+                     from_date = today() - months(12),
+                     to_date = today(),
                      ohlc = "Close")
 
 
