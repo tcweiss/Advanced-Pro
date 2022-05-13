@@ -5,9 +5,9 @@ account: thomas-weiss
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 6288079
-bundleId: 5898971
+bundleId: 5899682
 url: https://thomas-weiss.shinyapps.io/portfolio_selection/
-when: 1652361255.11113
-lastSyncTime: 1652361255.11114
+when: 1652372437.22747
+lastSyncTime: 1652372437.22748
 asMultiple: FALSE
 asStatic: FALSE

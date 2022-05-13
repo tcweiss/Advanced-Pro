@@ -1,5 +1,3 @@
-#### Samuel und Sebastian Test####
-
 
 # Import libraries
 library(tidyverse)
@@ -13,13 +11,12 @@ library(ichimoku)
 setwd("~/Desktop/Uni/Advanced Programming/Code/Advanced-Pro")
 
 
-
 ################
 ## FUNCTIONS  ##
 ################
 
 # Function for accessing APIs.
-get_prices <- function(x, from_date, to_date, ohlc) {
+get_prices <- function(x, from_date = (today()-months(12)), to_date = today(), ohlc = "Close") {
 
   # If only one ticker, proceed here.
   if (length(x)==1) {
@@ -29,58 +26,64 @@ get_prices <- function(x, from_date, to_date, ohlc) {
                              from = from_date,
                              to = to_date,
                              env = NULL,
-                             auto.assign = FALSE)[,paste0(x, '.', ohlc)], silent = TRUE)
+                             auto.assign = FALSE)[,paste0(x, '.', ohlc)], silent = TRUE) %>%
+              suppressWarnings()
 
-    # If no data available for selected time period,
-    # return empty xts object.
-    if ("try-error" %in% class(prices)) {
-
-      len <- difftime(as.Date(to_date), as.Date(from_date)) %>%
-        as.integer()
-
-      prices <- xts(rep(NA_real_, (len+1)), seq.Date(as.Date(from_date), as.Date(to_date), by = "days"))
-      names(prices) <- x
-
-      # If data available, return data.
-    } else {
-      names(prices) <- x
-    }
+    # Rename dataframe column using provided ticker
+    # and return dataframe.
+    names(prices) <- x
     prices
 
-    # If more than one tickers, proceed here.
+  # If more than one ticker, proceed here.
   } else {
 
-    for (i in 1:length(x)) {
+    # Restrict to no more than 300 tickers at a time
+    # to not exhaust API limit.
+    if (length(x)>300) {
 
-      # Extract stock price using inputs.
-      price <- try(getSymbols(x[i],
-                              from = from_date,
-                              to = to_date,
-                              env = NULL,
-                              auto.assign = FALSE)[,paste0(x[i], '.', ohlc)], silent = TRUE)
+      x <- x[1:300]
+      limited <- TRUE
 
-      # If no data available for selected time period, return empty xts object.
-      if ("try-error" %in% class(price)) {
+    } else {
 
-        len <- difftime(as.Date(to_date), as.Date(from_date)) %>%
-          as.integer()
+      limited <- FALSE
 
-        price <- xts(rep(NA_real_, (len+1)), seq.Date(as.Date(from_date), as.Date(to_date), by = "days"))
-        names(price) <- x[i]
-
-        # If data available, return data.
-      } else {
-
-        names(price) <- x[i]
-
-      }
-      if (i == 1) {
-        prices <- price
-      } else {
-        prices <- merge(prices, price)
-      }
     }
-    prices
+
+      # Loop through tickers to get data.
+      for (i in 1:length(x)) {
+
+        # Extract stock price using inputs.
+        price <- try(getSymbols(x[i],
+                                from = from_date,
+                                to = to_date,
+                                env = NULL,
+                                auto.assign = FALSE)[,paste0(x[i], '.', ohlc)], silent = TRUE) %>%
+                 suppressWarnings()
+
+        # Rename dataframe columns using ticker used.
+        names(price) <- x[i]
+
+        # If loop is in first iteration, assign data to "prices".
+        if (i == 1) {
+          prices <- price
+
+        # If loop is not in first iteration, add data to "prices".
+        } else {
+          prices <- merge(prices, price)
+        }
+      }
+
+    # If user provides more than 300 tickers,
+    # return first 300 stocks and print warning.
+    if (limited == TRUE) {
+      cat("Warning: API limit exceeded, returning only data for first 300 ticker.\nTo retrieve more data, please wait 15min and try again.")
+      prices
+
+    # If user provides less than 300 ticker, return stocks.
+    } else {
+      prices
+    }
   }
 }
 
@@ -176,20 +179,16 @@ get_forecasts <- function(x) {
 
 
 
-
 ###################
 ##  PREPARE DATA ##
 ###################
 
 # Get tickers and names of SP500.
 SP500 <- tq_index("SP500") %>%
-  select(symbol, company) %>%
-  unique() %>%
-  mutate(symbol = gsub("\\.", "-", symbol)) %>%
-  suppressMessages()
-
-# Use only first 300 observations for now (API limit).
-SP500 <- SP500[1:300,]
+            select(symbol, company) %>%
+            unique() %>%
+            mutate(symbol = gsub("\\.", "-", symbol)) %>%
+            suppressMessages()
 
 # Get stock data. Input either single string or vector of
 # strings. Returns xts object.

@@ -28,7 +28,7 @@ choices <- readRDS("app_data/choices.RDS")
 ui <- fluidPage(theme = shinytheme("cosmo"),
 
   # Title
-  titlePanel("My Tech Stock Portfolio"),
+  titlePanel("Investing@HSG"),
 
   # Sidebar
   sidebarLayout(
@@ -39,26 +39,25 @@ ui <- fluidPage(theme = shinytheme("cosmo"),
                    inputId = "stocks",
                    label = h4("Stocks"),
                    choices = choices,
-                   selected = prices_df$symbol[prices_df$symbol == 'AAPL'],
+                   selected = prices_df$symbol[prices_df$symbol == c('AAPL', 'CSX', 'NKE')],
                    options = list(`actions-box` = TRUE),
-                   multiple = T
-                 ),
+                   multiple = T),
 
                  # Pick time period
                  radioButtons("period", label = h4("Period"),
                               choices = list("1 month" = 1, "3 months" = 2, "6 months" = 3, "12 months" = 4, "YTD" = 5),
-                              selected = 4
-                 ),
+                              selected = 4),
 
                  # Pick benchmark
                  radioButtons("benchmark", label = h4("Benchmark"),
                               choices = list("SP500" = 1, "Nasdaq100" = 2,"None" = 3),
-                              selected = 3)
-    ),
+                              selected = 3)),
 
     # Plot results
     mainPanel(
-      plotlyOutput("plot",height=800)
+      tabsetPanel(type = "tabs",
+                  tabPanel("Market Data", plotlyOutput("plot", height = 800)),
+                  tabPanel("Portfolio", verbatimTextOutput("summary")))
     )
   )
 )
@@ -115,8 +114,9 @@ server <- function(input, output) {
                    mutate(init_close = if_else(date == min(date),close,NA_real_)) %>%
                    mutate(value = round(100 * close / sum(init_close,na.rm=T),1)) %>%
                    ungroup() %>%
-                   ggplot(aes(date, value,colour = symbol)) +
-                   geom_line(size = 1, alpha = .9) +
+                   ggplot(aes(x=date, y=value, color=symbol)) +
+                   geom_line(size = 0.7, alpha = .9) +
+                   scale_y_continuous() +
                    # uncomment the line below to show area under curves
                    # geom_area(aes(fill=symbol),position="identity",alpha=.2) +
                    theme_minimal(base_size=16) +
@@ -125,6 +125,8 @@ server <- function(input, output) {
                          panel.background = element_rect(fill="black"),
                          panel.grid = element_blank(),
                          legend.text = element_text(colour="white"))
+
+
         )
       )
     })
@@ -133,3 +135,4 @@ server <- function(input, output) {
 
 # Run the application
 shinyApp(ui = ui, server = server)
+
