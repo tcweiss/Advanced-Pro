@@ -10,13 +10,17 @@ library(plotly)
 library(tidyverse)
 library(tidyquant)
 library(timetk)
+library(PortfolioAnalytics)
+library(PortfolioAnalytics)
+library(ROI)
+library(ROI.plugin.glpk)
+library(ROI.plugin.quadprog)
 
 # Load data.
 prices_df <- readRDS("app_data/prices_df.RDS")
 bench <- readRDS("app_data/bench.RDS")
 choices <- readRDS("app_data/choices.RDS")
-
-
+returns <- readRDS("app_data/returns.RDS")
 
 #######################################
 ####### A shiny app development #######
@@ -43,6 +47,18 @@ ui <- fluidPage(#theme = shinytheme("cyborg"),
                    selected = prices_df$symbol[prices_df$symbol == "AAPL"],
                    options = list(`actions-box` = TRUE),
                    multiple = T
+                 ),
+
+                 sliderInput(
+                   inputId = "min",
+                   label = h4("Input your minimum weight for an Asset"),
+                   value = 0.15, min = 0, max = 0.5
+                 ),
+
+                 sliderInput(
+                   inputId = "max",
+                   label = h4("Input your maximum weight for an Asset"),
+                   value = 0.75, min = 0.5, max = 1
                  ),
 
                  # Pick time period
@@ -125,7 +141,7 @@ server <- function(input, output) {
                    # uncomment the line below to show area under curves
                    # geom_area(aes(fill=symbol),position="identity",alpha=.2) +
                    theme_minimal(base_size=16) +
-                   theme(axis.title=element_blank(),
+                   theme(axis.title = element_blank(),
                          plot.background = element_rect(fill = "black"),
                          panel.background = element_rect(fill="black"),
                          panel.grid = element_blank(),
@@ -133,90 +149,26 @@ server <- function(input, output) {
         )
       )
     })
-
-    returns <- prices_df %>%
-      group_by(symbol) %>%
-      tq_transmute(select = close, mutate_fun = periodReturn, period = "daily", type = "log") %>%
-      pivot_wider(names_from = symbol, values_from = daily.returns) %>%
-      tk_xts()
-
-    mu <- colMeans(returns)
-    cov <- cov(returns)*252
-
-    num_port <- 1000
-
-    all_wts <- matrix(nrow = num_port,
-                      ncol = length(input$stocks))
-
-    all_port_returns <- vector("numeric", length = num_port)
-    all_port_risk <- vector("numeric", length = num_port)
-    all_port_sr <- vector("numeric", length = num_port)
-
-    for (i in seq_along(all_port_returns)) {
-
-      wts <- runif(length(input$stocks))
-      wts_norm <- wts/sum(wts)
-
-      # Storing weight in the matrix
-      all_wts[i,] <- wts_norm
-
-      # Portfolio returns
-
-      port_ret <- ((sum(wts_norm * mu) + 1)^252) - 1
-
-      # Storing Portfolio Returns values
-      all_port_returns[i] <- port_ret
-
-
-      # Creating and storing portfolio risk
-      port_sd <- sqrt(t(wts_norm) %*% (cov  %*% wts_norm))
-      all_port_risk[i] <- port_sd
-
-      sr <- port_ret/port_sd
-      all_port_sr[i] <- sr
-
-    }
-
-    port_values <- tibble(Return = all_port_returns, Risk = all_port_risk, Sharpe = all_port_sr)
-    all_wts <- tk_tbl(all_wts)
-    colnames(all_wts) <- colnames(returns)
-    port_values <- tk_tbl(cbind(all_wts, port_values))
-
-    min_var <- port_values[which.min(port_values$Risk), ]
-    max_sr <- port_values[which.max(port_values$Sharpe), ]
-
-    output$weights <- renderPlotly({
-      print(
-        ggplotly(min_var %>%
-                   gather(1:length(names(returns)), key = Asset,
-                          value = Weights) %>%
-                   ggplot(aes(x = fct_reorder(Asset,Weights), y = Weights, fill = Asset)) +
-                   geom_bar(stat = 'identity') +
-                   theme_minimal() +
-                   labs(x = 'Assets', y = 'Weights', title = "Minimum Variance Portfolio Weights") +
-                   scale_y_continuous(labels = scales::percent)))
-      })
-
-
-    output$ef <- renderPlotly({
-      print(
-        ggplotly(port_values %>%
-      ggplot(aes(x = Risk, y = Return, color = Sharpe)) +
-      geom_point() +
-      theme_classic() +
-      scale_y_continuous(labels = scales::percent) +
-      scale_x_continuous(labels = scales::percent) +
-      labs(x = 'Annualized Risk',
-           y = 'Annualized Returns',
-           title = "Portfolio Optimization & Efficient Frontier") +
-      geom_point(aes(x = Risk,
-                     y = Return), data = min_var, color = 'red') +
-      geom_point(aes(x = Risk,
-                     y = Return), data = max_sr, color = 'red')))
-    })
-
   })
 
+  ret <- reactive({
+    return(returns[, unlist(input$stocks)])
+  })
+
+  opt <- reactive({
+      port_spec <- portfolio.spec(colnames(ret()))
+      port_spec <- add.constraint(portfolio = port_spec, type = "full_investment")
+      port_spec <- add.constraint(portfolio = port_spec, type = "long_only")
+      port_spec <- add.constraint(portfolio = port_spec, type = "box", min = input$min, max = input$max)
+      port_spec <- add.objective(portfolio = port_spec, type = "risk", name = "StdDev")
+      port_spec <- add.objective(portfolio = port_spec, type = "return", name = "mean")
+      opt <- optimize.portfolio(ret(), portfolio = port_spec, optimize_method = "ROI")
+      return(opt)
+  })
+
+  wts <- reactive({return(extractWeights(opt()))})
+
+  output$weights <- renderPlot(barplot(wts()))
 
 
 }
