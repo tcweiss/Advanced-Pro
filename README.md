@@ -1,10 +1,21 @@
-# Group Project: Investing@HSG
+# Investing@HSG
 
-"Hold, Buy or Sell?" A common question share holders constantly deal with. <br>
+<b>Group Project <br>
+7,789 | 8,789: Skills <br>
+Programming with Advanced Computer Languages & <br>
+Programming - Introduction Level <br>
+Spring Semester 2022 <br>
+Dr. Mario Silic <br>
+University of St.Gallen </b> <br>
+<br>
+
 
 ![Image](https://github.com/KRuschmann/Sale_of_Shares_Advisor/blob/master/Image.png?) <br>
 
-As this decision requires a highly complex analysis and a considerable amount of time and expertise, we have tried to incorporate this process into a single tool to reduce the time consuming workload of every single investor. If you are curious to learn more about our approach, we encourage you to read on and experience the Stock Investing Advisor yourself!
+As this decision requires a highly complex analysis and a considerable amount of time and expertise, we have tried to incorporate this process into a single tool to reduce the time consuming workload of every single investor. 
+
+
+If you are curious to learn more about our approach, we encourage you to read on and experience the Stock Investing Advisor yourself!
 
 1. [ Group Project Members ](#memb)
 2. [ General Information ](#desc)
