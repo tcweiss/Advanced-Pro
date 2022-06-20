@@ -1,4 +1,4 @@
-![Image](HSG logo.png?) <br>
+![Image](HSG_logo.png?) <br>
 
 # Investing@HSG
 
