@@ -1,16 +1,15 @@
 # Investing@HSG
 
 <b>Group Project <br>
-7,789 | 8,789: Skills <br>
-Programming with Advanced Computer Languages & <br>
-Programming - Introduction Level <br>
+Skills: Programming with Advanced Computer Languages & <br>
+Skills: Programming - Introduction Level <br>
 Spring Semester 2022 <br>
 Dr. Mario Silic <br>
 University of St.Gallen </b> <br>
 <br>
 
 
-![Image](https://github.com/KRuschmann/Sale_of_Shares_Advisor/blob/master/Image.png?) <br>
+![Image](Image.png?) <br>
 
 As this decision requires a highly complex analysis and a considerable amount of time and expertise, we have tried to incorporate this process into a single tool to reduce the time consuming workload of every single investor. 
 
