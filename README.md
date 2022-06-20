@@ -1,7 +1,4 @@
-# Advanced-Pro
-
-
-# Group Project: Stock Investing Advisor
+# Group Project: Investing@HSG
 
 "Hold, Buy or Sell?" A common question share holders constantly deal with. <br>
 
@@ -20,10 +17,10 @@ As this decision requires a highly complex analysis and a considerable amount of
 
 <a name="memb"></a>
 ## 1. Group Project Members
-- Lucas Jutzi
-- Lukas Kevic-Niederer
-- Katharina Ruschmann
-- Samuel Weber
+- Samuel
+- Bregic, Armin
+- Tragust, Sebastian
+- Weiss, Thomas
 
 <a name="desc"></a>
 ## 2. General Information
@@ -134,7 +131,6 @@ This valuation model is based on the anticipation of future free cash flows. As 
 ## 7. Appendix: Library Description
 
 ### Pandas:
-
 ```pandas``` is an open-source, BSD licensed library that enables the provision of easy data structure and quicker data analysis for Python. For operations like data analysis and modelling, pandas makes it possible to carry these out without needing to switch to more domain-specific language like R. [1](https://github.com/jianjian97/Swiss-Geography-Master)
 ### NumPy:
 ```numpy``` is one of the fundamental Python packages for scientific computing, as it provides support for large multidimensional arrays and matrices along with a collection of high-level mathematical functions to execute these functions swiftly. This interface can be utilized for expressing images, sound waves, and other binary raw streams as an array of real numbers in N-dimensional. ```numpy``` can also be used as an efficient multi-dimensional container of generic data. [(1)](https://github.com/jianjian97/Swiss-Geography-Master)
