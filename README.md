@@ -7,16 +7,17 @@ Skills: Programming - Introduction Level <br>
 Skills: Programming with Advanced Computer Languages & <br>
 Spring Semester 2022 <br>
 Dr. Mario Silic <br>
-University of St.Gallen </b> <br>
+University of St. Gallen </b> <br>
+Submitted on 30th of June 2022
 <br>
 
 
 ![Image](Image.png?) <br>
 
-As this decision requires a highly complex analysis and a considerable amount of time and expertise, we have tried to incorporate this process into a single tool to reduce the time consuming workload of every single investor. 
+The goal of this project is to provide the user an app to visualize stock data of selected companies and to analyze stocks to form an individual portfolio.
+Furthermore we want to incorporate this processes into a single tool to reduce the time consuming workload of every single investor. 
 
-
-If you are curious to learn more about our approach, we encourage you to read on and experience the Stock Investing Advisor yourself!
+If you are curious to learn more about our approach, we encourage you to read on and experience the Web App by yourself!
 
 1. [ Group Project Members ](#memb)
 2. [ General Information ](#desc)
@@ -29,14 +30,14 @@ If you are curious to learn more about our approach, we encourage you to read on
 
 <a name="memb"></a>
 ## 1. Group Project Members
-- Samuel
-- Bregic, Armin
-- Tragust, Sebastian
-- Weiss, Thomas
+- Begic Armin
+- Duerr Samuel
+- Tragust Sebastian (17-620-220)
+- Weiss Thomas
 
 <a name="desc"></a>
 ## 2. General Information
-This student project "Stock Investing Advisor" is part of the course "Programming - Introduction Level" by Mario Silic at the University of St. Gallen (HSG). The purpose of this project is a fundamental analysis of publicly listed companies in order to determine whether a stock is efficiently priced and should therefore be purchased. This is based on an automated process of calculating and analyzing future free cash flows (DCF analysis), which is industry standard in the financial sector and many other industries. <br>
+This student project "Investing@HSG" is part of the courses "Programming - Introduction Level" & "Programming with Advanced Computer Languages" by Mario Silic at the University of St. Gallen (HSG). The purpose of this project is a fundamental analysis of publicly listed companies in order to determine whether a stock is efficiently priced and should therefore be purchased. This is based on an automated process of calculating and analyzing future free cash flows (DCF analysis), which is industry standard in the financial sector and many other industries. <br>
 
 **Please note:** <br>
 You can find the plain code in the [Code_SIA_Final.py](https://github.com/KRuschmann/Stock_Investing_Advisor/blob/master/Code_SIA_Final.py) file. <br>
