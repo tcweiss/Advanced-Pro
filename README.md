@@ -3,12 +3,13 @@
 # Investing@HSG
 
 <b>Group Project <br>
-Skills: Programming - Introduction Level <br>
-Skills: Programming with Advanced Computer Languages & <br>
+Skills: Programming - Introduction Level & <br>
+Skills: Programming with Advanced Computer Languages <br>
 Spring Semester 2022 <br>
 Dr. Mario Silic <br>
-University of St. Gallen </b> <br>
-Submitted on 30th of June 2022
+University of St. Gallen <br>
+Submitted on 30th of June 2022 </b> <br>
+<br>
 <br>
 
 
