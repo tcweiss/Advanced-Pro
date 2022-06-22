@@ -59,13 +59,24 @@ The [Code_SIA_Final.ipynb](https://github.com/KRuschmann/Stock_Investing_Advisor
 
 
 
-In order to properly use our "Investing@HSG"-App, it is essential to have installed the above listed libraries prior to running this program. To install the libraries, you can use RStudio with the following commands:
+In order to properly use our "Investing@HSG"-App, it is essential to have installed the above listed libraries prior to running this program. To install the libraries, copy and paste the following code into your R console:
 
 ```
-install.packages(c("shiny", "shinyWidgets", "shinythemes",
-                   "PerformanceAnalytics", "PortfolioAnalytics", "tidyquant", "tidyverse",
-                   "magrittr","reactable", "arrow", "bslib", "qs", "timetk", "dygraphs", "rvest"))
-
+install.packages(c("shiny",                # Creating web app
+                   "shinyWidgets",         # Web app widgets
+                   "shinythemes",          # Web app themes
+                   "bslib",                # Add-ins for web app themes
+                   "PerformanceAnalytics", # Stock return calculcations
+                   "PortfolioAnalytics",   # Portfolio optimization
+                   "tidyquant",            # Accessing Yahoo API
+                   "tidyverse",            # General data science toolkit
+                   "magrittr",             # Better pipe operator
+                   "reactable",            # Interactive tables
+                   "arrow",                # Fast read/write of tabular data 
+                   "qs",                   # Fast read/write of non-tabular data
+                   "timetk",               # Converting dataframes to time-series formats
+                   "dygraphs",             # Plotting 
+                   "rvest"))               # Web scraping.
 ```
 
 
