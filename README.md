@@ -23,7 +23,7 @@ If you are curious to learn more about our approach, we encourage you to read on
 2. [ General Information ](#desc)
 3. [ Technologies/Setup ](#usage)
 4. [ Code Structure ](#code)
-5. [ Screenshots ](#scrn)
+5. [ GIF's & Screenshots ](#scrn)
 6. [ Disclaimer ](#discl)
 7. [ Appendix: Libraries Description ](#app)
 
@@ -144,8 +144,11 @@ In the last step the program provides the user with a recommendation. Depending 
 
 
 <a name="scrn"></a>
-## 5. Screenshots
-Below, you can find screenshots from the Stock Investig Advisor and example inputs for the program. You can click on the thumbnails to download the full size images. 
+## 5. GIF's & Screenshots
+Below, you can find GIF's and screenshots from the App "Investing@HSG" and example inputs for the program.
+
+
+
 
 <img src="https://github.com/KRuschmann/Stock_Investing_Advisor/blob/e44c285ca081601dbd4896461484b13b91da1fe6/screenshots/Title.png" width="23%"> <img src="https://github.com/KRuschmann/Stock_Investing_Advisor/blob/d151f4685a3cdabaf2f918bf35e530fb2ed17bac/screenshots/Input.png" width="23%"> <img src="https://github.com/KRuschmann/Stock_Investing_Advisor/blob/d151f4685a3cdabaf2f918bf35e530fb2ed17bac/screenshots/Feedback.png" width="23%"> <img src="https://github.com/KRuschmann/Stock_Investing_Advisor/blob/d151f4685a3cdabaf2f918bf35e530fb2ed17bac/screenshots/Statistics.png" width="23%"> <img src="https://github.com/KRuschmann/Stock_Investing_Advisor/blob/d151f4685a3cdabaf2f918bf35e530fb2ed17bac/screenshots/Visualization.png" width="23%"> <img src="https://github.com/KRuschmann/Stock_Investing_Advisor/blob/d151f4685a3cdabaf2f918bf35e530fb2ed17bac/screenshots/Recommendation.png" width="23%"> <img src="https://github.com/KRuschmann/Stock_Investing_Advisor/blob/d151f4685a3cdabaf2f918bf35e530fb2ed17bac/screenshots/Geographics.png" width="23%"> <img src="https://github.com/KRuschmann/Stock_Investing_Advisor/blob/d151f4685a3cdabaf2f918bf35e530fb2ed17bac/screenshots/Example%20inputs.png" width="23%">
 
