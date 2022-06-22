@@ -147,7 +147,7 @@ In the last step the program provides the user with a recommendation. Depending 
 ## 5. GIF's & Screenshots
 Below, you can find GIF's and screenshots from the App "Investing@HSG" and example inputs for the program.
 
-
+![](https://github.com/tcweiss/Advanced-Pro/blob/b0dfaf5ee96d7f2973d8f7cc2e1fcb86b3c69abd/Investing@HSG.gif)
 
 
 <img src="https://github.com/KRuschmann/Stock_Investing_Advisor/blob/e44c285ca081601dbd4896461484b13b91da1fe6/screenshots/Title.png" width="23%"> <img src="https://github.com/KRuschmann/Stock_Investing_Advisor/blob/d151f4685a3cdabaf2f918bf35e530fb2ed17bac/screenshots/Input.png" width="23%"> <img src="https://github.com/KRuschmann/Stock_Investing_Advisor/blob/d151f4685a3cdabaf2f918bf35e530fb2ed17bac/screenshots/Feedback.png" width="23%"> <img src="https://github.com/KRuschmann/Stock_Investing_Advisor/blob/d151f4685a3cdabaf2f918bf35e530fb2ed17bac/screenshots/Statistics.png" width="23%"> <img src="https://github.com/KRuschmann/Stock_Investing_Advisor/blob/d151f4685a3cdabaf2f918bf35e530fb2ed17bac/screenshots/Visualization.png" width="23%"> <img src="https://github.com/KRuschmann/Stock_Investing_Advisor/blob/d151f4685a3cdabaf2f918bf35e530fb2ed17bac/screenshots/Recommendation.png" width="23%"> <img src="https://github.com/KRuschmann/Stock_Investing_Advisor/blob/d151f4685a3cdabaf2f918bf35e530fb2ed17bac/screenshots/Geographics.png" width="23%"> <img src="https://github.com/KRuschmann/Stock_Investing_Advisor/blob/d151f4685a3cdabaf2f918bf35e530fb2ed17bac/screenshots/Example%20inputs.png" width="23%">
