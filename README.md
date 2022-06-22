@@ -7,7 +7,6 @@ Skills: Programming - Introduction Level & <br>
 Skills: Programming with Advanced Computer Languages <br>
 Spring Semester 2022 <br>
 Dr. Mario Silic <br>
-University of St. Gallen <br>
 Submitted on 30th of June 2022 </b> <br>
 <br>
 <br>
@@ -16,15 +15,15 @@ Submitted on 30th of June 2022 </b> <br>
 ![Image](Image.png?) <br>
 
 The goal of this project is to provide the user an app to visualize stock data of selected companies and to analyze stocks to form an individual portfolio.
-Furthermore we want to incorporate this processes into a single tool to reduce the time consuming workload of every single investor. 
+We want to incorporate this processes into a single tool to reduce the time consuming workload of every single investor. 
 
-If you are curious to learn more about our approach, we encourage you to read on and experience the Web App by yourself!
+If you are curious to learn more about our approach, we encourage you to read on and experience our Web App "[Investing@HSG](https://thomas-weiss.shinyapps.io/portfolio_selection/)" by yourself!
 
 1. [ Group Project Members ](#memb)
 2. [ General Information ](#desc)
 3. [ Technologies/Setup ](#usage)
 4. [ Code Structure ](#code)
-5. [ Screenshots ](#scrn)
+5. [ GIF's & Screenshots ](#scrn)
 6. [ Disclaimer ](#discl)
 7. [ Appendix: Libraries Description ](#app)
 
@@ -39,10 +38,14 @@ If you are curious to learn more about our approach, we encourage you to read on
 <a name="desc"></a>
 ## 2. General Information
 This student project "Investing@HSG" is part of the courses "Programming - Introduction Level" & "Programming with Advanced Computer Languages" by Mario Silic at the University of St. Gallen (HSG). The purpose of this project is a fundamental analysis of publicly listed companies. You can also form an individual protfolio and get the analyst recommendations and forecasts for the specific stocks. <br>
+<br>
+**Here you can find the link to the online Web App**: https://thomas-weiss.shinyapps.io/portfolio_selection/
+<br>
 
 **Please note:** <br>
-You can find the plain code in the [Code_SIA_Final.py](https://github.com/KRuschmann/Stock_Investing_Advisor/blob/master/Code_SIA_Final.py) file. <br>
-The [Code_SIA_Final.ipynb](https://github.com/KRuschmann/Stock_Investing_Advisor/blob/master/Code_SIA_Final.ipynb) file includes the code with descriptions and further intermediate results.
+You can find the plain code in the [functions.R](https://github.com/tcweiss/Advanced-Pro/blob/90e500c360bcb408a23733337e2e963c987a5bb2/portfolio_selection/code/functions.R) file. <br>
+You can find the *Shiny App* code in the [app.R](https://github.com/tcweiss/Advanced-Pro/blob/90e500c360bcb408a23733337e2e963c987a5bb2/portfolio_selection/app.R) file. <br>
+The folder [app_data](https://github.com/tcweiss/Advanced-Pro/tree/main/portfolio_selection/app_data) includes all the data which is needed to correctly execute the program.
 
 <a name="usage"></a>
 ## 3. Technologies/Setup
@@ -54,13 +57,24 @@ The [Code_SIA_Final.ipynb](https://github.com/KRuschmann/Stock_Investing_Advisor
 
 
 
-In order to properly use our "Investing@HSG"-App, it is essential to have installed the above listed libraries prior to running this program. To install the libraries, you can use RStudio with the following commands:
+In order to properly use our "Investing@HSG"-App, it is essential to have installed the above listed libraries prior to running this program. To install the libraries, copy and paste the following code into your R console:
 
 ```
-install.packages(c("shiny", "shinyWidgets", "shinythemes",
-                   "PerformanceAnalytics", "PortfolioAnalytics", "tidyquant", "tidyverse",
-                   "magrittr","reactable", "arrow", "bslib", "qs", "timetk", "dygraphs", "rvest"))
-
+install.packages(c("shiny",                # Creating web app
+                   "shinyWidgets",         # Web app widgets
+                   "shinythemes",          # Web app themes
+                   "bslib",                # Add-ins for web app themes
+                   "PerformanceAnalytics", # Stock return calculcations
+                   "PortfolioAnalytics",   # Portfolio optimization
+                   "tidyquant",            # Accessing Yahoo API
+                   "tidyverse",            # General data science toolkit
+                   "magrittr",             # Better pipe operator
+                   "reactable",            # Interactive tables
+                   "arrow",                # Fast read/write of tabular data 
+                   "qs",                   # Fast read/write of non-tabular data
+                   "timetk",               # Converting dataframes to time-series formats
+                   "dygraphs",             # Plotting 
+                   "rvest"))               # Web scraping.
 ```
 
 
@@ -130,8 +144,11 @@ In the last step the program provides the user with a recommendation. Depending 
 
 
 <a name="scrn"></a>
-## 5. Screenshots
-Below, you can find screenshots from the Stock Investig Advisor and example inputs for the program. You can click on the thumbnails to download the full size images. 
+## 5. GIF's & Screenshots
+Below, you can find GIF's and screenshots from the App "Investing@HSG" and example inputs for the program.
+
+
+
 
 <img src="https://github.com/KRuschmann/Stock_Investing_Advisor/blob/e44c285ca081601dbd4896461484b13b91da1fe6/screenshots/Title.png" width="23%"> <img src="https://github.com/KRuschmann/Stock_Investing_Advisor/blob/d151f4685a3cdabaf2f918bf35e530fb2ed17bac/screenshots/Input.png" width="23%"> <img src="https://github.com/KRuschmann/Stock_Investing_Advisor/blob/d151f4685a3cdabaf2f918bf35e530fb2ed17bac/screenshots/Feedback.png" width="23%"> <img src="https://github.com/KRuschmann/Stock_Investing_Advisor/blob/d151f4685a3cdabaf2f918bf35e530fb2ed17bac/screenshots/Statistics.png" width="23%"> <img src="https://github.com/KRuschmann/Stock_Investing_Advisor/blob/d151f4685a3cdabaf2f918bf35e530fb2ed17bac/screenshots/Visualization.png" width="23%"> <img src="https://github.com/KRuschmann/Stock_Investing_Advisor/blob/d151f4685a3cdabaf2f918bf35e530fb2ed17bac/screenshots/Recommendation.png" width="23%"> <img src="https://github.com/KRuschmann/Stock_Investing_Advisor/blob/d151f4685a3cdabaf2f918bf35e530fb2ed17bac/screenshots/Geographics.png" width="23%"> <img src="https://github.com/KRuschmann/Stock_Investing_Advisor/blob/d151f4685a3cdabaf2f918bf35e530fb2ed17bac/screenshots/Example%20inputs.png" width="23%">
 
@@ -144,19 +161,32 @@ This valuation model is based on the anticipation of future free cash flows. As 
 <a name="app"></a>
 ## 7. Appendix: Library Description
 
-### Pandas:
-```pandas``` is an open-source, BSD licensed library that enables the provision of easy data structure and quicker data analysis for Python. For operations like data analysis and modelling, pandas makes it possible to carry these out without needing to switch to more domain-specific language like R. [1](https://github.com/jianjian97/Swiss-Geography-Master)
-### NumPy:
-```numpy``` is one of the fundamental Python packages for scientific computing, as it provides support for large multidimensional arrays and matrices along with a collection of high-level mathematical functions to execute these functions swiftly. This interface can be utilized for expressing images, sound waves, and other binary raw streams as an array of real numbers in N-dimensional. ```numpy``` can also be used as an efficient multi-dimensional container of generic data. [(1)](https://github.com/jianjian97/Swiss-Geography-Master)
-### Yfinance:
-```yfinance``` is a popular open source library as a means to access the financial data available on Yahoo Finance. Yahoo Finance used to have their own official API, but this was decommissioned in 2017. A range of unofficial APIs and libraries have taken its place to access the same data, including of course yfinance. [(2)](https://algotrading101.com/learn/yfinance-guide/)
-### Pandas_datareader:
-Functions from ```pandas_datareader.data``` and ```pandas_datareader.wb``` extract data from various Internet sources into a pandas DataFrame. Currently the following sources are supported: Tiingo, IEX, Alpha Vantage, Enigma, Quandl, St.Louis FED (FRED), Kenneth French’s data library, World Bank, OECD, Eurostat, Thrift Savings Plan, Nasdaq Trader symbol definitions, Stooq, MOEX and Naver Finance. [(3)](https://pandas-datareader.readthedocs.io/en/latest/remote_data.html)
-### Statistics:
-Python's ```statistics``` is a built-in Python library for descriptive statistics. ```statistics``` provides functions for calculating mathematical statistics of numeric (Real-valued) data. [(4)](https://realpython.com/python-statistics/)
-### Datetime:
-Python's ```datetime``` supplies classes to work with date and time. These classes provide a number of functions to deal with dates, times and time intervals. The datetime module comes built into Python. [(5)](https://www.geeksforgeeks.org/python-datetime-module-with-examples/)
-### Statsmodels:
-```statsmodels``` is a Python module that provides classes and functions for the estimation of many different statistical models, as well as for conducting statistical tests, and statistical data exploration. An extensive list of result statistics are available for each estimator. [(6)](https://www.statsmodels.org/stable/index.html)
-### Matplotlib:
-```matplotlib``` is a comprehensive library for creating static, animated, and interactive visualizations in Python. ```matplotlib.pyplot``` is a collection of functions that make matplotlib work like MATLAB (alternative programming language). Each pyplot function makes some change to a figure: e.g., creates a figure, creates a plotting area in a figure, plots some lines in a plotting area, decorates the plot with labels, etc. [(7)](https://matplotlib.org/stable/tutorials/introductory/pyplot.html)
+### shinyWidgets
+```shinyWidgets```boffers custom widgets and other components to enhance your shiny applications. You can replace classical checkboxes with switch button, add colors to radio buttons and checkbox group, use buttons as radio or checkboxes. Each widget has an update method to change the value of an input from the server. [(1)](https://github.com/dreamRs/shinyWidgets)
+### shinythemes
+```shinythemes``` provides some Bootstrap themes for use with Shiny. The themes are from from https://bootswatch.com/. [(2)](https://github.com/rstudio/shinythemes)
+### bslib
+```bslib``` provides tools for customizing Bootstrap themes directly from R, making it much easier to customize the appearance of Shiny apps & R Markdown documents. [(3)](https://rstudio.github.io/bslib/)
+### PerformanceAnalytics
+```PerformanceAnalytics``` provides econometric functions for performance and risk analysis of financial instruments or portfolios. This package aims to aid practitioners and researchers in using the latest research for analysis of both normally and non-normally distributed return streams. [(4)](https://cran.r-project.org/web/packages/PerformanceAnalytics/PerformanceAnalytics.pdf)
+### PortfolioAnalytics
+```PortfolioAnalytics``` provides numerical solutions for portfolio problems with complex constraints and objective sets. The goal of the package is to aid practicioners and researchers in solving portfolio optimization problems with complex constraints and objectives that mirror real-world applications. [(5)](https://cran.r-project.org/web/packages/PortfolioAnalytics/PortfolioAnalytics.pdf)
+### tidyquant
+```tidyquant``` integrates the best resources for collecting and analyzing financial data with the tidy data infrastructure of the tidyverse allowing for seamless interaction between each. You can now perform complete financial analyses in the tidyverse. [(6)](https://cran.r-project.org/web/packages/tidyquant/index.html)
+### tidyverse
+```tidyverse``` is an opinionated collection of R packages designed for data science. All packages share an underlying design philosophy, grammar, and data structures. [(7)](https://cran.r-project.org/web/packages/tidyverse/index.html)
+### magrittr
+```magrittr``` has two aims: decrease development time and improve readability and maintainability of code. To achieve its humble aims, magrittr provides a new “pipe”-like operator, ```%>%```, with which you may pipe a value forward into an expression or function call; something along the lines of ```x %>% f```, rather than ```f(x)```. [(8)](https://cran.r-project.org/web/packages/magrittr/vignettes/magrittr.html)
+### reactable
+```reactable``` provides interactive data tables for R, based on the 'React Table' JavaScript library. It provides an HTML widget that can be used in 'R Markdown' documents and 'Shiny' applications, or viewed from an R console. [(9)](https://glin.github.io/reactable/)
+### arrow
+```arrow``` (Apache Arrow) is a cross-language development platform for in-memory data. It specifies a standardized language-independent columnar memory format for flat and hierarchical data, organized for efficient analytic operations on modern hardware. It also provides computational libraries and zero-copy streaming messaging and interprocess communication. [(10)](https://arrow.apache.org/docs/r/)
+### qs
+```qs``` provides functions for quickly writing and reading any R object to and from disk. [(11)](https://cran.r-project.org/web/packages/qs/index.html)
+### timetk
+```timetk``` is a package that is part of the modeltime ecosystem for time series analysis and forecasting. [(12)](https://business-science.github.io/timetk/)
+### dygraphs
+```dygraphs``` is an R interface to the dygraphs JavaScript charting library. It provides rich facilities for charting time-series data in R. [(13)](https://rstudio.github.io/dygraphs/)
+### rvest
+```rvest``` helps you scrape (or harvest) data from web pages. It is designed to work with magrittr to make it easy to express common web scraping tasks, inspired by libraries like beautiful soup and RoboBrowser. [(14)](https://github.com/tidyverse/rvest)
+
