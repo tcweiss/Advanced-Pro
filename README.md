@@ -31,14 +31,14 @@ If you are curious to learn more about our approach, we encourage you to read on
 
 <a name="memb"></a>
 ## 1. Group Project Members
-- Begic Armin
-- Duerr Samuel
+- Begic Armin (20-614-582)
+- Duerr Samuel (20-609-855)
 - Tragust Sebastian (17-620-220)
-- Weiss Thomas
+- Weiss Thomas (17-620-360)
 
 <a name="desc"></a>
 ## 2. General Information
-This student project "Investing@HSG" is part of the courses "Programming - Introduction Level" & "Programming with Advanced Computer Languages" by Mario Silic at the University of St. Gallen (HSG). The purpose of this project is a fundamental analysis of publicly listed companies in order to determine whether a stock is efficiently priced and should therefore be purchased. This is based on an automated process of calculating and analyzing future free cash flows (DCF analysis), which is industry standard in the financial sector and many other industries. <br>
+This student project "Investing@HSG" is part of the courses "Programming - Introduction Level" & "Programming with Advanced Computer Languages" by Mario Silic at the University of St. Gallen (HSG). The purpose of this project is a fundamental analysis of publicly listed companies. You can also form an individual protfolio and get the analyst recommendations and forecasts for the specific stocks. <br>
 
 **Please note:** <br>
 You can find the plain code in the [Code_SIA_Final.py](https://github.com/KRuschmann/Stock_Investing_Advisor/blob/master/Code_SIA_Final.py) file. <br>
@@ -46,21 +46,21 @@ The [Code_SIA_Final.ipynb](https://github.com/KRuschmann/Stock_Investing_Advisor
 
 <a name="usage"></a>
 ## 3. Technologies/Setup
-- Python version: Python 3.8.5
-- JupytherLab: Please refer to https://jupyter.org/install to install JupytherLab.
-- Required libraries: ```numpy``` ```pandas``` ```yfinance``` ```pandas_datareader``` ```statistics``` ```datetime``` ```statsmodels.api``` ```matplotlib.pyplot```
+- R version: R 4.2.0
+- RStudio: Please refer to https://www.rstudio.com/products/rstudio/download/ to install RStudio.
+- Required libraries: ```shiny``` ```shinyWidgets``` ```shinythemes``` ```PerformanceAnalytics``` ```PortfolioAnalytics``` ```tidyquant``` ```tidyverse``` ```magrittr``` ```reactable``` ```arrow``` ```bslib``` ```qs``` ```timetk``` ```dygraphs``` ```rvest```
 
-In order to properly use our Stock Investing Advisor, it is essential to have installed the above listed libraries prior to running this program. To install the libraries, you can use PowerShell in Anaconda with the following commands:
+
+
+
+
+In order to properly use our "Investing@HSG"-App, it is essential to have installed the above listed libraries prior to running this program. To install the libraries, you can use RStudio with the following commands:
 
 ```
-$ pip install numpy
-$ pip install pandas
-$ pip install yfinance
-$ pip install pandas_datareader
-$ pip install statistics
-$ pip install datetime
-$ pip install statsmodels.api
-$ pip install matplotlib.pyplot
+install.packages(c("shiny", "shinyWidgets", "shinythemes",
+                   "PerformanceAnalytics", "PortfolioAnalytics", "tidyquant", "tidyverse",
+                   "magrittr","reactable", "arrow", "bslib", "qs", "timetk", "dygraphs", "rvest"))
+
 ```
 
 
@@ -160,6 +160,3 @@ Python's ```datetime``` supplies classes to work with date and time. These class
 ```statsmodels``` is a Python module that provides classes and functions for the estimation of many different statistical models, as well as for conducting statistical tests, and statistical data exploration. An extensive list of result statistics are available for each estimator. [(6)](https://www.statsmodels.org/stable/index.html)
 ### Matplotlib:
 ```matplotlib``` is a comprehensive library for creating static, animated, and interactive visualizations in Python. ```matplotlib.pyplot``` is a collection of functions that make matplotlib work like MATLAB (alternative programming language). Each pyplot function makes some change to a figure: e.g., creates a figure, creates a plotting area in a figure, plots some lines in a plotting area, decorates the plot with labels, etc. [(7)](https://matplotlib.org/stable/tutorials/introductory/pyplot.html)
-
-
-
