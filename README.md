@@ -18,7 +18,7 @@ Submitted on 30th of June 2022 </b> <br>
 The goal of this project is to provide the user an app to visualize stock data of selected companies and to analyze stocks to form an individual portfolio.
 Furthermore we want to incorporate this processes into a single tool to reduce the time consuming workload of every single investor. 
 
-If you are curious to learn more about our approach, we encourage you to read on and experience the Web App by yourself!
+If you are curious to learn more about our approach, we encourage you to read on and experience our Web App "Investing@HSG" by yourself!
 
 1. [ Group Project Members ](#memb)
 2. [ General Information ](#desc)
@@ -46,8 +46,9 @@ This student project "Investing@HSG" is part of the courses "Programming - Intro
 <br>
 
 **Please note:** <br>
-You can find the plain code in the [Code_SIA_Final.py](https://github.com/KRuschmann/Stock_Investing_Advisor/blob/master/Code_SIA_Final.py) file. <br>
-The [Code_SIA_Final.ipynb](https://github.com/KRuschmann/Stock_Investing_Advisor/blob/master/Code_SIA_Final.ipynb) file includes the code with descriptions and further intermediate results.
+You can find the functions code in the [functions.R](https://github.com/tcweiss/Advanced-Pro/blob/90e500c360bcb408a23733337e2e963c987a5bb2/portfolio_selection/code/functions.R) file. <br>
+You can find the Shiny-App code in the [app.R](https://github.com/tcweiss/Advanced-Pro/blob/90e500c360bcb408a23733337e2e963c987a5bb2/portfolio_selection/app.R) file. <br>
+The folder [app_data](https://github.com/tcweiss/Advanced-Pro/tree/main/portfolio_selection/app_data) includes all the data which is needed to correctly execute the program.
 
 <a name="usage"></a>
 ## 3. Technologies/Setup
