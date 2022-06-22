@@ -7,7 +7,6 @@ Skills: Programming - Introduction Level & <br>
 Skills: Programming with Advanced Computer Languages <br>
 Spring Semester 2022 <br>
 Dr. Mario Silic <br>
-University of St. Gallen <br>
 Submitted on 30th of June 2022 </b> <br>
 <br>
 <br>
@@ -16,9 +15,9 @@ Submitted on 30th of June 2022 </b> <br>
 ![Image](Image.png?) <br>
 
 The goal of this project is to provide the user an app to visualize stock data of selected companies and to analyze stocks to form an individual portfolio.
-Furthermore we want to incorporate this processes into a single tool to reduce the time consuming workload of every single investor. 
+We want to incorporate this processes into a single tool to reduce the time consuming workload of every single investor. 
 
-If you are curious to learn more about our approach, we encourage you to read on and experience our Web App "Investing@HSG" by yourself!
+If you are curious to learn more about our approach, we encourage you to read on and experience our Web App "[Investing@HSG](https://thomas-weiss.shinyapps.io/portfolio_selection/)" by yourself!
 
 1. [ Group Project Members ](#memb)
 2. [ General Information ](#desc)
