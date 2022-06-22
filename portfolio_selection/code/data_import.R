@@ -1,15 +1,14 @@
 
-# Set wd to projects' main directory.
-setwd("~/Desktop/Uni/Advanced Programming/Code/Advanced-Pro")
+# Set your working directory to the 'portfolio_selection' folder.
+# setwd("~/Desktop/Uni/Advanced Programming/Code/Advanced-Pro/portfolio_selection")
 
-# Load libraries and own functions.
+# Load functions and packages.
+source("code/functions.R")
 library(tidyverse)
 library(magrittr)
 library(tidyquant)
 library(arrow)
 library(qs)
-source("Code/Functions.R")
-
 
 #####################
 ##   PREPARE DATA  ##
