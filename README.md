@@ -39,6 +39,11 @@ If you are curious to learn more about our approach, we encourage you to read on
 <a name="desc"></a>
 ## 2. General Information
 This student project "Investing@HSG" is part of the courses "Programming - Introduction Level" & "Programming with Advanced Computer Languages" by Mario Silic at the University of St. Gallen (HSG). The purpose of this project is a fundamental analysis of publicly listed companies. You can also form an individual protfolio and get the analyst recommendations and forecasts for the specific stocks. <br>
+<br>
+
+**Here you can find the link to the online Web App**: https://thomas-weiss.shinyapps.io/portfolio_selection/
+<br>
+<br>
 
 **Please note:** <br>
 You can find the plain code in the [Code_SIA_Final.py](https://github.com/KRuschmann/Stock_Investing_Advisor/blob/master/Code_SIA_Final.py) file. <br>
