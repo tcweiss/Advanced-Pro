@@ -4,13 +4,14 @@
 ##  STOCK PRICES  ##
 ####################
 
-# Wrapper for tq_get to access the Yahoo API This function prevents the API from
-# reaching it's limit and returning errors, which happens if more than 300
-# stocks are requested at once. Input 'x' is string or vector of strings for
-# stock tickers, default today. Input 'from_date' is character or string for
-# dates with format YYYY-MM-DD, default 12 months ago. Third argument 'to_date'
-# same as second one, default today. Fourth argument 'ohlc' is string with
-# either "Open", "High", "Low", or "Close", default Close.
+# This is a Wrapper for tq_get to access the Yahoo API, and it's used by the 
+# actual functions below This function prevents the API from reaching it's 
+# limit and returning errors, which happens if more than 300 stocks are 
+# requested at once. Input 'x' is string or vector of strings for stock tickers, 
+# default today. Input 'from_date' is character or string for dates with format 
+# YYYY-MM-DD, default 12 months ago. Third argument 'to_date' same as second one, 
+# default today. Fourth argument 'ohlc' is string with either "Open", "High", "Low", 
+# or "Close", default Close.
 get_prices <- function(x, from_date = (today()-months(12)), to_date = today(), ohlc = "close") {
 
   # Load dependencies.
@@ -277,11 +278,10 @@ get_forecasts_plot <- function(x) {
 #########################################
 
 # Function for getting optimal portfolio weights. Uses get_prices. Input 'x is
-# single string or vector of strings for stock tickers. Input 'x' is string or
-# vector of strings for stock tickers, default today. Input 'from_date' is
+# single string or vector of strings for stock tickers. Input 'from_date' is
 # character or string for dates with format YYYY-MM-DD, default 12 months ago.
-# Third argument 'to_date' same as second one, default today. Output is vector
-# of weights, named by tickers.
+# Input 'to_date' same as second one, default today. Output is vector of weights, 
+# named by tickers.
 get_weights <- function(x) {
 
   # Load dependencies.
