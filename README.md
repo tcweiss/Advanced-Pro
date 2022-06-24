@@ -4,7 +4,7 @@
 Did you ever think about investing but didn't know how?
 ![Image](Image.png?) <br>
 
-Selecting the right stocks can require a lot of work and expertise. Our goal was to develop a tool that simplifies this process and saves investors valuable time. If you are interested, we encourage you to read on and experience our web app by yourself. Happy investing!
+Selecting the right stocks can require a lot of work and expertise. The goal of this project was to develop a tool that simplifies this process and saves investors valuable time. If you are interested, we encourage you to read on and experience it by yourself. Happy investing!
 
 1. [ General Information ](#desc)
 2. [ Technologies/Setup ](#usage)
