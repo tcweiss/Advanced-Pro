@@ -61,7 +61,7 @@ install.packages(c("shiny",
                    "rvest"))
 ```
 
-If everything worked, clone this repo and save it on your machine. Make sure to set your working directory to the 'investing_at_hsg' folder and open the 'app.R' file. Click the 'Run App' button in RStudio and the app should appear on you machine. Note that you may have to create an account on Rstudio Connect.
+If everything worked, clone this repo and save it on your machine. Make sure to set your working directory to the 'investing_at_hsg' folder and open the 'app.R' file. Click the 'Run App' button in RStudio and the app should appear on you machine. *Note: you may have to create an account on Rstudio Connect.*
 
 ![Gif](images/run_locally.gif?) <br>
 
@@ -85,7 +85,7 @@ In addition, the stocks with the highest and lowest return in the past month are
 
 ### Investment Guide
 
-Opening the second tab, one can see two input fields. The input field on the left accepts text in the form of SP500 stock tickers. If the user enters a ticker, a 12-month forecast of the stock price and a BUY/HOLD/SELL recommendation will be displayed. The data is scraped directly from CNN Money and is based on the latest analyst estimates. Note that incorrect inputs will not be processed. 
+Opening the second tab, one can see two input fields. The input field on the left accepts text in the form of SP500 stock tickers. If the user enters a ticker, a 12-month forecast of the stock price and a BUY/HOLD/SELL recommendation will be displayed. The data is scraped directly from CNN Money and is based on the latest analyst estimates.
 
 
 ![Gif](images/tab_2_use_1.gif?) <br>
