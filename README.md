@@ -71,17 +71,41 @@ If everything worked, clone this repo and save it on your machine. Make sure to 
 <a name="feat"></a>
 ## 3. Overview of Features
 
-The app consists of two tabs. The 'Market Info' tab offers the possibility to compare historical stock prices. Once you have found some interesting stocks, you can use the 'Investment Guide' tab to check if it would actually be a good investment. 
+The app consists of two tabs: 'Market Info' and 'Investment Guide'.
+
+The 'Market Info' tab offers the possibility to compare historical stock prices. Once you have found some interesting stocks, you can use the 'Investment Guide' tab to check if it would actually be a good investment. 
 
 ### Market Info
 
 ![image](images/tab_1_start.png?) <br>
 
 
-A panel on the left side allows to control what is displayed. The user can choose from all stocks in the SP500 as well as popular benchmark indices, set different time horizons, and decide whether prices should be standardized or not. As soon as something is changed, the lineplot is updated accordingly, and the table below displays monthly return statistics of the selected stocks.
+A panel on the left side allows to control what is displayed. The user can choose from all stocks in the SP500 as well as popular benchmark indices, set different time horizons, and decide whether prices should be standardized or not. If the input changes, the lineplot is updated accordingly, and the table below displays monthly return statistics of the selected stocks.
 
 
 ![Gif](images/tab_1_use.gif?) <br>
+
+In addition, the stocks with the highest and lowest return in the past month are displayed at the bottom left. Note that this input is not influenced by the panel.
+
+
+### Investment Guide
+
+Wenn man ihn öffnet, sieht man zwei Eingabefelder:
+
+
+
+Opening the second tab, one can see two input fields. The input field on the left accepts text in the form of SP500 stock tickers. If the user enters a ticker, a 12-month forecast of the stock price and a BUY/HOLD/SELL recommendation will be displayed. The data is scraped directly from CNN Money and is based on the latest analyst estimates. Note that incorrect inputs will not be processed. 
+
+
+
+The second input field is a dropdown menu with SP500 stocks. Selecting two or more stock returns a table with optimal portfolio weights, i.e. the proportion of money to be invested in each stock. Weights are calculated to achieve the lowest volatility per unit of return, which is the industry standard. In addition, a plot with the potential return of this portfolio is shown.
+
+
+
+
+
+
+
 
 
 
