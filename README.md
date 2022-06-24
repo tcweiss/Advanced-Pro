@@ -7,7 +7,7 @@ Did you ever think about investing but didn't know how?
 Selecting the right stocks can require a lot of work and expertise. The goal of this project was to develop a tool that simplifies this process and saves investors valuable time. If you are interested, we encourage you to read on and experience it by yourself. Happy investing!
 
 1. [ General Information ](#desc)
-2. [ Technologies/Setup ](#usage)
+2. [ Running the Project ](#usage)
 3. [ Overview of Features ](#feat)
 4. [ Technical Background ](#tech)
 5. [ Disclaimer ](#disc)
@@ -28,7 +28,7 @@ A more detailed description on the structure is given below.
 
 <br><br>
 <a name="usage"></a>
-## 2. Technologies/Setup
+## 2. Running the Project
 
 ### Online
 
