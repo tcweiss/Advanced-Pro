@@ -71,6 +71,14 @@ If everything worked, clone this repo and save it on your machine. Make sure to 
 <a name="feat"></a>
 ## 3. Overview of Features
 
+The app consists of two tabs. The 'Market Info' tab offers the possibility to compare historical stock prices. Once you have found some interesting stocks, you can use the 'Investment Guide' tab to check if it would actually be a good investment. 
+
+### Market Info
+
+A panel on the left side allows to control what is displayed. The user can choose from all stocks in the SP500 as well as popular benchmark indices, set different time horizons, and decide whether prices should be standardized or not. As soon as something is changed, the lineplot is updated accordingly, and the table below displays monthly return statistics of the selected stocks.
+
+
+
 
 
 
