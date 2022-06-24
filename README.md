@@ -87,13 +87,13 @@ In addition, the stocks with the highest and lowest return in the past month are
 
 ### Investment Guide
 
-An input field on the left accepts text in the form of SP500 stock tickers. If the user enters a ticker, a 12-month forecast of the stock price and a BUY/HOLD/SELL recommendation will be displayed. The data is scraped from CNN Money and is based on the latest analyst estimates. Note that incorrect inputs will not be processed. 
+Opening the second tab, one can see two input fields. The input field on the left accepts text in the form of SP500 stock tickers. If the user enters a ticker, a 12-month forecast of the stock price and a BUY/HOLD/SELL recommendation will be displayed. The data is scraped directly from CNN Money and is based on the latest analyst estimates. Note that incorrect inputs will not be processed. 
 
 
 ![Gif](images/tab_2_use_1.gif?) <br>
 
 
-The second input field is a dropdown menu with SP500 stocks. Selecting two or more stock returns a table with optimal portfolio weights, i.e. the proportion of money to be invested in each stock. Weights are calculated to achieve the lowest volatility per unit of return, which is the industry standard. In addition, a plot with the potential return of this portfolio is shown.
+The second input field is a dropdown menu with SP500 stocks. Selecting two or more stock returns a table with optimal portfolio weights, i.e. the proportion of money to be invested in each stock. In addition, a plot displays the historical return of the portfolio, and the user gets a message telling him his return over the last 5 years.
 
 
 ![Gif](images/tab_2_use_2.gif?) <br>
@@ -103,6 +103,11 @@ The second input field is a dropdown menu with SP500 stocks. Selecting two or mo
 <br><br>
 <a name="tech"></a>
 ## 4. Technical Background
+
+
+
+Weights are calculated to achieve the lowest volatility per unit of return, which is the industry standard. 
+
 
 ### Step 0: Framework
 Prior to getting started it is vital to install and import all the required libraries that are listed in the chapters above. Disregarding this step will lead to an incorrect execution of this program.
