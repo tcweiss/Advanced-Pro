@@ -32,9 +32,7 @@ A more detailed description on the structure is given below.
 
 ### Online
 
-Since we deployed our web-app online, all you need is an internet connection. For best results, we recommend opening the app on a screen with at least 13 inches. Note that it may take a few second for the program to run.
-
-Link to app: [Investing@HSG](https://thomas-weiss.shinyapps.io/investing_at_hsg/)
+Since we deployed our web-app online, all you need is an internet connection. For best results, we recommend opening the app on a screen with at least 13 inches. Note that it may take a few second for the program to run. Link to app: [Investing@HSG](https://thomas-weiss.shinyapps.io/investing_at_hsg/)
 
 
 ### Locally
@@ -64,7 +62,10 @@ install.packages(c("shiny",
                    "rvest"))
 ```
 
-If everything worked, clone this repo and save it on your machine. Make sure to set your working directory to the 'investing_at_hsg' folder and open the 'app.R' file. Click the 'Run App' button in RStudio and the app should appear on you machine. NOTE: You may have to create an account on Rstudio Connect.
+If everything worked, clone this repo and save it on your machine. Make sure to set your working directory to the 'investing_at_hsg' folder and open the 'app.R' file. Click the 'Run App' button in RStudio and the app should appear on you machine. Note that you may have to create an account on Rstudio Connect.
+
+
+
 
 <br><br>
 <a name="feat"></a>
