@@ -75,10 +75,14 @@ The app consists of two tabs. The 'Market Info' tab offers the possibility to co
 
 ### Market Info
 
+<br>
+![image](images/tab_1_start.png?) <br>
+
+
 A panel on the left side allows to control what is displayed. The user can choose from all stocks in the SP500 as well as popular benchmark indices, set different time horizons, and decide whether prices should be standardized or not. As soon as something is changed, the lineplot is updated accordingly, and the table below displays monthly return statistics of the selected stocks.
 
-
-
+<br>
+![Gif](images/tab_1_use.gif?) <br>
 
 
 
