@@ -101,9 +101,6 @@ The second input field is a dropdown menu with SP500 stocks. Selecting two or mo
 <a name="tech"></a>
 ## 4. Technical Background
 
-
-A more detailed description on the structure is given below.
-
 The folder [investing_at_hsg](https://github.com/tcweiss/Advanced-Pro/tree/main/investing_at_hsg) includes all relevant files. 
 
 The first file is [app.R](https://github.com/tcweiss/Advanced-Pro/blob/main/investing_at_hsg/app.R), which is the main script that builds the app. It contains regular R code, wrapped inside functions from the Shiny package. The R code works as usual and creates all the output you see in the app. The Shiny functions simply embed the output into HTML code, which is what turns it into a web page. The basic functionality is the same for all features in the app. If you open app.R, you can see two main sections: user interface and server. First, the UI takes takes inputs from the user, e.g. stocks from a dropdown menu. Second, the input is sent to the server doing some calculations. Third, the output is sent back to the UI and shown to the user. This process is repeated constantly, so if the user changes the input, the output changes too.
