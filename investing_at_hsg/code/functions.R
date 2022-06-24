@@ -80,9 +80,9 @@ get_prices <- function(x, from_date = (today()-months(12)), to_date = today(), o
 }
 
 
-###################################
-##  FORECASTS & RECOMMENDATIONS  ##
-###################################
+#############################################
+##  FORECASTS & RECOMMENDATIONS (SCRAPING) ##
+#############################################
 
 # Function for scraping 12-month forecasts and analysts' recommendation from CNN
 # Money. Input 'x' is string or vector of strings for stock tickers. Output is
@@ -185,7 +185,7 @@ get_forecasts <- function(x) {
 
 
 #########################################
-##  FORECASTS & RECOMMENDATIONS OUTPUT ##
+##  FORECASTS & RECOMMENDATIONS (PLOT) ##
 #########################################
 
 # Function for creating plot and a message given analyst forecast of a stock.
@@ -343,8 +343,8 @@ get_weights <- function(x) {
   port_spec <- add.constraint(portfolio = port_spec,
                               type = "long_only")
 
-  # Add specification: "Risk function" = "Standard Deviation". Effect: Use
-  # standard deviation to minimize risk function, which is the industry standard.
+  # Add specification: "Risk function" = "Standard Deviation". Effect: Find optimal weights
+  # by minimizing standard deviation per unit of return, which is the industry standard.
   port_spec <- add.objective(portfolio = port_spec,
                              type = "risk",
                              name = "StdDev")

@@ -27,7 +27,9 @@ SP500_one <- SP500[1:300,]
 SP500_two <- SP500[301:nrow(SP500),]
 
 # Get stock price data for last 12 months using both subsets, then combine to
-# single dataframe.
+# single dataframe. CAUTION: Wait at least five minutes or use different VPN
+# after running the first line. If you don't do this and immediately run the
+# second line afterwards, the API will not return all requested stocks.
 prices_1 <- get_prices(SP500_one$symbol)
 prices_2 <- get_prices(SP500_two$symbol)
 prices <- rbind(prices_1, prices_2)
@@ -39,8 +41,8 @@ prices <- left_join(prices, SP500, by = "symbol") %>%
                   select(symbol, name, date, close)
 
 # Create named vector with company names (used for dropdown menu in app).
-choices_prices <- unique(SP500$symbol)
-names(choices_prices) <- unique(SP500$name)
+choices_prices <- unique(prices$symbol)
+names(choices_prices) <- unique(prices$name)
 choices_prices <- choices_prices[sort(names(choices_prices))]
 
 # Store different index tickers (used as benchmark in app).
@@ -88,11 +90,11 @@ prices_wl <- prices %>%
 # Save benchmark prices, stock prices, stock returns and named vectors in app's
 # data folder. Note that feather/qs reduce the write and read time, but it does
 # not affect the data itself.
-write_feather(bench, "portfolio_selection/app_data/bench.feather")
-write_feather(prices, "portfolio_selection/app_data/prices.feather")
-write_feather(prices_wl, "portfolio_selection/app_data/prices_wl.feather")
-qsave(choices_prices, "portfolio_selection/app_data/choices_prices.qs")
-qsave(choices_bench, "portfolio_selection/app_data/choices_bench.qs")
+write_feather(bench, "app_data/bench.feather")
+write_feather(prices, "app_data/prices.feather")
+write_feather(prices_wl, "app_data/prices_wl.feather")
+qsave(choices_prices, "app_data/choices_prices.qs")
+qsave(choices_bench, "app_data/choices_bench.qs")
 
 
 
