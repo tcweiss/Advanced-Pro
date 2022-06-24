@@ -77,7 +77,7 @@ The 'Market Info' tab offers the possibility to compare historical stock prices.
 
 ### Market Info
 
-A panel on the left side allows to control what is displayed. The user can choose from all stocks in the SP500 as well as popular benchmark indices, set different time horizons, and decide whether prices should be standardized or not. If the input changes, the lineplot is updated accordingly, and the table below displays monthly return statistics of the selected stocks.
+A panel on the left side allows to control what is displayed. The user can choose from all stocks in the SP500 as well as popular benchmark indices. One can also set different time horizons and decide whether prices should be standardized or not. If the input changes, the lineplot is updated accordingly, and the table below displays monthly return statistics of the selected stocks.
 
 
 ![Gif](images/tab_1_use.gif?) <br>
