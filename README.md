@@ -64,7 +64,7 @@ install.packages(c("shiny",
 
 If everything worked, clone this repo and save it on your machine. Make sure to set your working directory to the 'investing_at_hsg' folder and open the 'app.R' file. Click the 'Run App' button in RStudio and the app should appear on you machine. Note that you may have to create an account on Rstudio Connect.
 
-
+![Gif](images/run_locally.gif?) <br>
 
 
 <br><br>
