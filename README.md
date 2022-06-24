@@ -24,7 +24,7 @@ The student project "Investing@HSG" is part of the courses "Programming - Introd
 <br>
 
 **Please note:** <br>
-The folder [investing_at_hsg](https://github.com/tcweiss/Advanced-Pro/tree/main/investing_at_hsg) found on this repo includes all relevant files. The file [app.R](https://github.com/tcweiss/Advanced-Pro/blob/90e500c360bcb408a23733337e2e963c987a5bb2/investing_at_hsg/app.R) is the main script which executes the program. It accesses [functions.R](https://github.com/tcweiss/Advanced-Pro/blob/90e500c360bcb408a23733337e2e963c987a5bb2/portfolio_selection/code/functions.R), which includes self-written functions, and [app_data](https://github.com/tcweiss/Advanced-Pro/blob/90e500c360bcb408a23733337e2e963c987a5bb2/investing_at_hsg/app_data), which includes multiple datasets.<br>
+The folder [investing_at_hsg](https://github.com/tcweiss/Advanced-Pro/tree/main/investing_at_hsg) found on this repo includes all relevant files. The file [app.R](https://github.com/tcweiss/Advanced-Pro/blob/main/investing_at_hsg/app.R) is the main script which executes the program. It accesses [functions.R](https://github.com/tcweiss/Advanced-Pro/blob/main/code/functions.R), which includes self-written functions, and [app_data](https://github.com/tcweiss/Advanced-Pro/blob/main/investing_at_hsg/ap_data), which includes multiple datasets.<br>
 A more detailed description on the structure is given below.
 
 <a name="usage"></a>
