@@ -13,7 +13,7 @@ Selecting the right stocks can require a lot of work and expertise. Our goal was
 5. [ Disclaimer ](#disc)
 6. [ Appendix: Libraries Description ](#lib)
 
-<br>
+<br><br>
 <a name="desc"></a>
 ## 1. General Information
 The student project "Investing@HSG" is part of the courses "Programming - Introduction Level" & "Programming with Advanced Computer Languages" by Mario Silic at the University of St. Gallen (HSG). Investing@HSG is an interactive web application and can display historical market data, provide forecasts on future stock prices and optimize stock portfolios. It was developed by
@@ -21,9 +21,9 @@ The student project "Investing@HSG" is part of the courses "Programming - Introd
 - Samuell Duerr (20-609-855)
 - Sebastian Tragust (17-620-220)
 - Thomas Weiss (17-620-360)
-<br>
 
-**Please note:** <br>
+<br><br>
+**Please note:**
 The folder [investing_at_hsg](https://github.com/tcweiss/Advanced-Pro/tree/main/investing_at_hsg) found on this repo includes all relevant files. The file [app.R](https://github.com/tcweiss/Advanced-Pro/blob/main/investing_at_hsg/app.R) is the main script which executes the program. It accesses [functions.R](https://github.com/tcweiss/Advanced-Pro/blob/main/code/functions.R), which includes self-written functions, and [app_data](https://github.com/tcweiss/Advanced-Pro/blob/main/investing_at_hsg/ap_data), which includes multiple datasets.<br>
 A more detailed description on the structure is given below.
 
