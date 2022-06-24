@@ -22,7 +22,6 @@ The student project "Investing@HSG" is part of the courses "Programming - Introd
 - Thomas Weiss (17-620-360)
 
 
-<br><br>
 <a name="usage"></a>
 ## 2. Running the Project
 
@@ -63,7 +62,6 @@ If everything worked, clone this repo and save it on your machine. Make sure to 
 ![Gif](images/run_locally.gif?) <br>
 
 
-<br><br>
 <a name="feat"></a>
 ## 3. Overview of Features
 
@@ -96,7 +94,6 @@ The second input field is a dropdown menu with SP500 stocks. Selecting two or mo
 
 
 
-<br><br>
 <a name="tech"></a>
 ## 4. Technical Background
 
@@ -143,7 +140,6 @@ Once the user selects stocks from the dropdown menu, they are passed as input to
 Next, data from the last five years is fetched from the Yahoo API. The optimal weights are applied to construct an optimal portfolio, whose return is plotted and displayed to the user. In addition, the final return is extracted to show a message, telling the user how much a could have earned. Finally, the optimal weights are formatted as a table, which will show up on the right end of the page.
 
 
-<br><br>
 <a name="lib"></a>
 ## 5. Appendix: Library Description
 
