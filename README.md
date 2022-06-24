@@ -1,85 +1,80 @@
-![Image](HSG_logo.png?) <br>
 
 # Investing@HSG
 
-<b>Group Project <br>
-Skills: Programming - Introduction Level & <br>
-Skills: Programming with Advanced Computer Languages <br>
-Spring Semester 2022 <br>
-Dr. Mario Silic <br>
-Submitted on 30th of June 2022 </b> <br>
-<br>
-<br>
-
-
+Did you ever think about investing but didn't know how?
 ![Image](Image.png?) <br>
 
-The goal of this project is to provide the user an app to visualize stock data of selected companies and to analyze stocks to form an individual portfolio.
-We want to incorporate this processes into a single tool to reduce the time consuming workload of every single investor. 
+Selecting the right stocks can require a lot of work and expertise. Our goal was to develop a tool that simplifies this process and saves investors valuable time. If you are interested, we encourage you to read on and experience our web app by yourself. Happy investing!
 
-If you are curious to learn more about our approach, we encourage you to read on and experience our Web App "[Investing@HSG](https://thomas-weiss.shinyapps.io/portfolio_selection/)" by yourself!
+1. [ General Information ](#desc)
+2. [ Technologies/Setup ](#usage)
+3. [ Overview of Features ](#feat)
+4. [ Technical Background ](#tech)
+5. [ Disclaimer ](#disc)
+6. [ Appendix: Libraries Description ](#lib)
 
-1. [ Group Project Members ](#memb)
-2. [ General Information ](#desc)
-3. [ Technologies/Setup ](#usage)
-4. [ Code Structure ](#code)
-5. [ GIF's & Screenshots ](#scrn)
-6. [ Disclaimer ](#discl)
-7. [ Appendix: Libraries Description ](#app)
-
-
-<a name="memb"></a>
-## 1. Group Project Members
-- Begic Armin (20-614-582)
-- Duerr Samuel (20-609-855)
-- Tragust Sebastian (17-620-220)
-- Weiss Thomas (17-620-360)
 
 <a name="desc"></a>
-## 2. General Information
-This student project "Investing@HSG" is part of the courses "Programming - Introduction Level" & "Programming with Advanced Computer Languages" by Mario Silic at the University of St. Gallen (HSG). The purpose of this project is a fundamental analysis of publicly listed companies. You can also form an individual protfolio and get the analyst recommendations and forecasts for the specific stocks. <br>
-<br>
-**Here you can find the link to the online Web App**: https://thomas-weiss.shinyapps.io/portfolio_selection/
+## 1. General Information
+The student project "Investing@HSG" is part of the courses "Programming - Introduction Level" & "Programming with Advanced Computer Languages" by Mario Silic at the University of St. Gallen (HSG). Investing@HSG is an interactive web application and can display historical market data, provide forecasts on future stock prices and optimize stock portfolios. It was developed by
+- Armin Begic (20-614-582)
+- Samuell Duerr (20-609-855)
+- Sebastian Tragust (17-620-220)
+- Thomas Weiss (17-620-360)
 <br>
 
 **Please note:** <br>
-You can find the plain code in the [functions.R](https://github.com/tcweiss/Advanced-Pro/blob/90e500c360bcb408a23733337e2e963c987a5bb2/portfolio_selection/code/functions.R) file. <br>
-You can find the *Shiny App* code in the [app.R](https://github.com/tcweiss/Advanced-Pro/blob/90e500c360bcb408a23733337e2e963c987a5bb2/portfolio_selection/app.R) file. <br>
-The folder [app_data](https://github.com/tcweiss/Advanced-Pro/tree/main/portfolio_selection/app_data) includes all the data which is needed to correctly execute the program.
+The folder [investing_at_hsg](https://github.com/tcweiss/Advanced-Pro/tree/main/investing_at_hsg) found on this repo includes all relevant files. The file [app.R](https://github.com/tcweiss/Advanced-Pro/blob/90e500c360bcb408a23733337e2e963c987a5bb2/investing_at_hsg/app.R) is the main script which executes the program. It accesses [functions.R](https://github.com/tcweiss/Advanced-Pro/blob/90e500c360bcb408a23733337e2e963c987a5bb2/portfolio_selection/code/functions.R), which includes self-written functions, and [app_data](https://github.com/tcweiss/Advanced-Pro/blob/90e500c360bcb408a23733337e2e963c987a5bb2/investing_at_hsg/app_data), which includes multiple datasets.<br>
+A more detailed description on the structure is given below.
 
 <a name="usage"></a>
-## 3. Technologies/Setup
-- R version: R 4.2.0
-- RStudio: Please refer to https://www.rstudio.com/products/rstudio/download/ to install RStudio.
+## 2. Technologies/Setup
+
+### Online
+
+Since we deployed our web-app online, all you need is an internet connection. For best results, we recommend opening the app on a screen with at least 13 inches. Note that it may take a few second for the program to run.
+
+Link to app: [Investing@HSG](https://thomas-weiss.shinyapps.io/investing_at_hsg/)
+
+
+### Locally
+
+Alternatively, you can also run the app locally. This requires the following programs:
+- R version 4.2.0: https://cran.rstudio.com 
+- RStudio: https://www.rstudio.com/products/rstudio/download/
 - Required libraries: ```shiny``` ```shinyWidgets``` ```shinythemes``` ```PerformanceAnalytics``` ```PortfolioAnalytics``` ```tidyquant``` ```tidyverse``` ```magrittr``` ```reactable``` ```arrow``` ```bslib``` ```qs``` ```timetk``` ```dygraphs``` ```rvest```
 
-
-
-
-
-In order to properly use our "Investing@HSG"-App, it is essential to have installed the above listed libraries prior to running this program. To install the libraries, copy and paste the following code into your R console:
+In order to properly use our "Investing@HSG"-App, it is essential to have installed the above listed libraries prior to running this program. To install all libraries, run the following code in your R console:
 
 ```
-install.packages(c("shiny",                # Creating web app
-                   "shinyWidgets",         # Web app widgets
-                   "shinythemes",          # Web app themes
-                   "bslib",                # Add-ins for web app themes
-                   "PerformanceAnalytics", # Stock return calculcations
-                   "PortfolioAnalytics",   # Portfolio optimization
-                   "tidyquant",            # Accessing Yahoo API
-                   "tidyverse",            # General data science toolkit
-                   "magrittr",             # Better pipe operator
-                   "reactable",            # Interactive tables
-                   "arrow",                # Fast read/write of tabular data 
-                   "qs",                   # Fast read/write of non-tabular data
-                   "timetk",               # Converting dataframes to time-series formats
-                   "dygraphs",             # Plotting 
-                   "rvest"))               # Web scraping.
+install.packages(c("shiny",                
+                   "shinyWidgets",        
+                   "shinythemes",          
+                   "bslib",                
+                   "PerformanceAnalytics", 
+                   "PortfolioAnalytics",
+                   "tidyquant",
+                   "tidyverse",
+                   "magrittr",
+                   "reactable",
+                   "arrow",
+                   "qs",
+                   "timetk",
+                   "dygraphs",
+                   "rvest"))
 ```
 
+If everything worked, clone this repo and save it on your machine. Make sure to set your working directory to the 'investing_at_hsg' folder and open the 'app.R' file. Click the 'Run App' button in RStudio and the app should appear on you machine. NOTE: You may have to create an account on Rstudio Connect.
 
-<a name="code"></a>
-## 4. Code Structure
+<a name="feat"></a>
+## 3. Overview of Features
+
+
+
+
+
+<a name="tech"></a>
+## 4. Technical Background
 
 ### Step 0: Framework
 Prior to getting started it is vital to install and import all the required libraries that are listed in the chapters above. Disregarding this step will lead to an incorrect execution of this program.
@@ -143,23 +138,14 @@ Collect the current market value of the share as basis for the recommendation of
 In the last step the program provides the user with a recommendation. Depending on the difference between the implied value per share and the current market value of the share, the program indicates whether it considers the stock to be undervalued, overvalued or efficiently priced. In addition, based on this calculation, the program recommends holding, selling or buying the share.
 
 
-<a name="scrn"></a>
-## 5. GIF's & Screenshots
-Below, you can find GIF's and screenshots from the App "Investing@HSG" and example inputs for the program.
-
-
-
-
-<img src="https://github.com/KRuschmann/Stock_Investing_Advisor/blob/e44c285ca081601dbd4896461484b13b91da1fe6/screenshots/Title.png" width="23%"> <img src="https://github.com/KRuschmann/Stock_Investing_Advisor/blob/d151f4685a3cdabaf2f918bf35e530fb2ed17bac/screenshots/Input.png" width="23%"> <img src="https://github.com/KRuschmann/Stock_Investing_Advisor/blob/d151f4685a3cdabaf2f918bf35e530fb2ed17bac/screenshots/Feedback.png" width="23%"> <img src="https://github.com/KRuschmann/Stock_Investing_Advisor/blob/d151f4685a3cdabaf2f918bf35e530fb2ed17bac/screenshots/Statistics.png" width="23%"> <img src="https://github.com/KRuschmann/Stock_Investing_Advisor/blob/d151f4685a3cdabaf2f918bf35e530fb2ed17bac/screenshots/Visualization.png" width="23%"> <img src="https://github.com/KRuschmann/Stock_Investing_Advisor/blob/d151f4685a3cdabaf2f918bf35e530fb2ed17bac/screenshots/Recommendation.png" width="23%"> <img src="https://github.com/KRuschmann/Stock_Investing_Advisor/blob/d151f4685a3cdabaf2f918bf35e530fb2ed17bac/screenshots/Geographics.png" width="23%"> <img src="https://github.com/KRuschmann/Stock_Investing_Advisor/blob/d151f4685a3cdabaf2f918bf35e530fb2ed17bac/screenshots/Example%20inputs.png" width="23%">
-
 
 <a name="discl"></a>
-## 6. Disclaimer
+## 5. Disclaimer
 This valuation model is based on the anticipation of future free cash flows. As with any intrinsic valuation method, it is essential to bear in mind that valuations are not equally applicable to all businesses. While some companies do not even meet the required criteria (e.g. generating positive cash flows), other companies' values are not directly linked to the generation of free cash flows (e.g. Tesla and other companies that are experiencing hype for various reasons). Therefore, it is important to consider the individual context of each company in order to correctly implement the output of this DCF valuation. The delivered value should never be considered as an isolated basis in any decision-making process.
 
 
-<a name="app"></a>
-## 7. Appendix: Library Description
+<a name="lib"></a>
+## 6. Appendix: Library Description
 
 ### shinyWidgets
 ```shinyWidgets```boffers custom widgets and other components to enhance your shiny applications. You can replace classical checkboxes with switch button, add colors to radio buttons and checkbox group, use buttons as radio or checkboxes. Each widget has an update method to change the value of an input from the server. [(1)](https://github.com/dreamRs/shinyWidgets)
