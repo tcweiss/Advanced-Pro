@@ -10,8 +10,7 @@ Selecting the right stocks can require a lot of work and expertise. The goal of 
 2. [ Running the Project ](#usage)
 3. [ Overview of Features ](#feat)
 4. [ Technical Background ](#tech)
-5. [ Disclaimer ](#disc)
-6. [ Appendix: Libraries Description ](#lib)
+5. [ Appendix: Libraries Description ](#lib)
 
 <br><br>
 <a name="desc"></a>
@@ -22,9 +21,6 @@ The student project "Investing@HSG" is part of the courses "Programming - Introd
 - Sebastian Tragust (17-620-220)
 - Thomas Weiss (17-620-360)
 
-**Please note:** <br>
-The folder [investing_at_hsg](https://github.com/tcweiss/Advanced-Pro/tree/main/investing_at_hsg) found on this repo includes all relevant files. The file [app.R](https://github.com/tcweiss/Advanced-Pro/blob/main/investing_at_hsg/app.R) is the main script which executes the program. It accesses [functions.R](https://github.com/tcweiss/Advanced-Pro/blob/main/code/functions.R), which includes self-written functions, and [app_data](https://github.com/tcweiss/Advanced-Pro/blob/main/investing_at_hsg/ap_data), which includes multiple datasets.<br>
-A more detailed description on the structure is given below.
 
 <br><br>
 <a name="usage"></a>
@@ -105,80 +101,51 @@ The second input field is a dropdown menu with SP500 stocks. Selecting two or mo
 ## 4. Technical Background
 
 
+A more detailed description on the structure is given below.
 
-Weights are calculated to achieve the lowest volatility per unit of return, which is the industry standard. 
+The folder [investing_at_hsg](https://github.com/tcweiss/Advanced-Pro/tree/main/investing_at_hsg) includes all relevant files. 
 
+The first file is [app.R](https://github.com/tcweiss/Advanced-Pro/blob/main/investing_at_hsg/app.R), which is the main script that builds the app. It contains regular R code, wrapped inside functions from the Shiny package. The R code works as usual and creates all the output you see in the app. The Shiny functions simply embed the output into HTML code, which is what turns it into a web page. The basic functionality is the same for all features in the app. If you open app.R, you can see two main sections: user interface and server. First, the UI takes takes inputs from the user, e.g. stocks from a dropdown menu. Second, the input is sent to the server doing some calculations. Third, the output is sent back to the UI and shown to the user. This process is repeated constantly, so if the user changes the input, the output changes too.
 
-### Step 0: Framework
-Prior to getting started it is vital to install and import all the required libraries that are listed in the chapters above. Disregarding this step will lead to an incorrect execution of this program.
+The second and third files are [functions.R](https://github.com/tcweiss/Advanced-Pro/blob/main/code/functions.R), which contains self written functions, and [app_data](https://github.com/tcweiss/Advanced-Pro/blob/main/investing_at_hsg/ap_data), which contains multiple datasets. Both are accessed by the main script to perform calculations in the server section.
 
-### Step 1: Input
-
-The first step is to enter the desired stock ticker (e.g. 'AAPL' for Apple Inc. or 'MSFT' for Microsoft Corporation). Please note that for some smaller companies there is not enough data available to value the stock based on a DCF valuation. In this case, the program will display a corresponding error message.
-
-### Step 2: Descriptive Statistics & Stock Price Development
-
-After the user has chosen a stock for the valuation the program provides some descriptive statistics such as the mean, standard deviation, variance, minimum and maximum of the stock price and stock trading volume during the last year. Additionally, the program visualizes the adjusted closing price development for the same time period.
-
-### Step 3: Assumptions
-
-In this section the program makes some assumptions that are essential for the excecution of the valuation process.
-
-In order to determine the appropriate risk and the corresponding cost of capital for any company, the program requires the interest rate of a risk-free asset. For this purpose, it assumes a risk-free rate of ```1.60%``` in accordance with the 10 Year US Treasury Rate.
-
-Furthermore, the program requires the perpetual growth rate as an assumption to calculate the terminal value of a company. The perpetual growth rate is the growth rate at which a company is expected to continue growing into eternity. Since it cannot realistically be assumed that companies will continue to grow into perpetuity at high rates, a perpetual growth rate in line with the average growth of the GDP is a reasonable assumption. The program therefore applies a rate of ```3.00%``` in accordance with the growth rate of the global GDP.
-
-Finally, a time horizon of ```5 years``` is assumed for the projection of future free cashflows. The shorter the projection period, the larger is the contribution of the terminal value to the total value of the company. On the other hand, an excessively long projection period is also not desirable, as it is extremely difficult to reasonably estimate the individual cash flows for each of the future years. Hence, a time span of 5 years provides a reasonable approach in corporate valuations. This number can of course be customized as desired by the user.
-
-### Step 4: Historical Data & Free Cashflows
-
-The next step is to gather all the historical data of a company that is required for the valuation process. The program automatically collects all the necessary figures (such as historical EBIT, Tax expenses, D&A, Capex and changes in Net Working Capital) from the Yahoo! Finance API and calculates the free cashflows of the past three years.
-
-### Step 5: WACC (Cost of Capital)
-
-In the fourth step the program derives the cost of capital used for discounting future cashflows. The weighted average cost of capital (WACC) consists of cost of equity and cost of dept.
-
-#### Cost of Equity
-To calculate cost of equity the program uses the CAPM model, which is a widely used tool in Finance. The CAPM is a special regression analysis that plots the returns of the target company (which represent the dependent variable) against the average market returns of the target company's geographical market (which represents the independent variable). To determine a value for cost of equity, the program pulls the stock's appropriate beta (measure of the individual enterprise risk) from the Yahoo! Finance API. For average market returns the program identifies where the business is located and automatically calculates the average market returns of the corresponding market index.
-
-#### Cost of Dept
-There are multiple approaches to calculate a company's cost of dept. To ensure excellent results across a wide range of companies, we have decided to use the credit default risk as a measure of the company's cost of dept. As not all companies have an official credit rating available, we are calculating a synthetic credit rating for the target company based on its interest coverage ratio. Therefore, we put the average operating income before interest payments in relation to the average company's interest expenses. From this, we can derive the associated credit rating and based on that the corresponding credit spread. Now we can compute the company's cost of dept by adding the credit spread to the risk-free rate.
-
-#### Combined Cost of Capital
-To derive the total WACC, we multiply the respective cost of capital by the proportion of equity or debt in the company and offset the cost of debt against the tax shield. This provides us with the discount rate for the future cashflows.
+Below you can find more detailed descriptions of how each feature works.
 
 
-### Step 6: Cashflow Growth Rate & Free Cashflow Projection
+### First Tab: Lineplot
 
-Since we do not care about hictorical data, as we are valuing the firm based on the expected future development of the company, we need to predict free cashflows for the projection horizon (in this case for the next 5 years). In order to do that, the program calculates historical cashflow growth rates based on the free cashflows of the past three years (which we calculated in Step 3). To avoid excessively high growth rates due to one-off events, the program takes the lower growth rate or averages out extreme values if necessary.
-
-To take into account the difference between future and present value of free cashflows, the program discounts every single cashflow of each year in the projection horizon back to the present value, using the weighted average cost of capital (WACC) that we calculated in the last step.
-
-### Step 7: Terminal Value
-
-To account for the 'going concern principle' (the assumption that the company will continue to exist in the future), we need to calculate the terminal value of the firm. Therefore, the program takes the last projected free cashflow (in this case the cashflow of year 5), grows it by the perpetual growth rate and uses the 'Gordon growth formula' to calculate the perpetual value. Discounting this value back to the present value provides us with the terminal value of the company.
-
-### Step 8: Implied Value per Share
-
-To arrive at the implied value per share, we need to sum up the present values of the projected free cashflows and the terminal value. As we are interested in the equity value of the firm, the program adds the value of the cash from the company's balance sheet and deducts the value of total dept. Dividing this value by the number of shares outstanding we obtain the fair value per share based on our prediction of the development of the firm's future free cashflows.
-
-### Step 9: Current Share Price
-
-Collect the current market value of the share as basis for the recommendation of the "Stock Investing Advisor".
-
-### Step 10: Recommendation
-
-In the last step the program provides the user with a recommendation. Depending on the difference between the implied value per share and the current market value of the share, the program indicates whether it considers the stock to be undervalued, overvalued or efficiently priced. In addition, based on this calculation, the program recommends holding, selling or buying the share.
+To create the line plot, the app first accesses the app_data folder and imports prices.feather. This file contains price data of all stocks in the SP500 and five benchmarks over the past year, and has been downloaded from the Yahoo API. The data is then filtered for the assets and periods chosen by the user. If the user has chosen a standardized scale, all prices are then transformed to start at 100 in the first period. Finally, the adjusted dataset is then plotted.
 
 
-<br><br>
-<a name="disc"></a>
-## 5. Disclaimer
-This valuation model is based on the anticipation of future free cash flows. As with any intrinsic valuation method, it is essential to bear in mind that valuations are not equally applicable to all businesses. While some companies do not even meet the required criteria (e.g. generating positive cash flows), other companies' values are not directly linked to the generation of free cash flows (e.g. Tesla and other companies that are experiencing hype for various reasons). Therefore, it is important to consider the individual context of each company in order to correctly implement the output of this DCF valuation. The delivered value should never be considered as an isolated basis in any decision-making process.
+### First Tab: Table with Decriptives
+
+The table below the line plot follows a similar approach. After importing prices.feather, the data is filtered for the assets chosen by the user. However, for performance reasons, dates are always filtered for the last 30 days. No price standardization is performed either, since descriptive statistics are already a way to standardize results. Next, the app computes each asset’s returns over the past month. The return series are then used to compute the descriptive statistics. Finally, the results are formatted as a table.
+
+
+### First Tab: Tables with Winners/Losers
+
+To create the two tables on the bottom left corner, no user input is required. In a first step, the app accesses the app_data folder to import prices_wl.feather. This dataset contains the current percentage returns of all stocks in the SP500, computed over the last 30 days. It also comes from the Yahoo Finance API. The data is then sorted in descending (for winners) or ascending order (for losers). Next, the top three observations are extracted and formatted as a table. This is done for each table.
+
+
+### Second Tab: Analyst Forecasts
+
+After the user entered a ticker, the function checks if it corresponds to a SP500 ticker. If not, no operation will be performed. If the ticker is valid, the app proceeds as follows.
+
+First, the ticker is passed as input to get_forecasts() in functions.R. This function uses the ticker to construct a URL leading to the stock’s page on CNN Money. The page’s source code is then downloaded, filtered for the relevant tags, and the contained in them returned. Since the scraped text consists of whole paragraphs, the function then uses regex patterns to extract only the 12-month price forecasts and the BUY/HOLD/SELL recommendation. 
+
+Second, the output from get_forecasts() is used by get_forecasts_plot(), which is also contained in functions.R. This function first fetches the stock’s price series for the last 12 months, using the Yahoo API. Next, it expands price series linearly by a year, starting from today’s price and ending with input containing the 12-month estimates. This is then used to create a plot, showing the past price followed by straight lines which represent the estimates. In addition, it prints a nicely formatted message to the user, which is displayed below the plot.
+
+
+### Second Tab: Optimal Portfolio Weights
+
+Once the user selects stocks from the dropdown menu, they are passed as input to get_weights() in functions.R. This functions first fetches stock prices for the last 12 months using the Yahoo API, and the compute each stock’s returns. Next, the functions defines multiple constraints: weights sum to 1 (full investment), weights must be in [0,1] (no short sales), and volatility per unit of return should be as low as possible (the industry standard). This is then solved as an optimization problem using the stock returns. Once the problem has been solved, the function returns the optimal weights.
+
+Next, data from the last five years is fetched from the Yahoo API. The optimal weights are applied to construct an optimal portfolio, whose return is plotted and displayed to the user. In addition, the final return is extracted to show a message, telling the user how much a could have earned. Finally, the optimal weights are formatted as a table, which will show up on the right end of the page.
+
 
 <br><br>
 <a name="lib"></a>
-## 6. Appendix: Library Description
+## 5. Appendix: Library Description
 
 ### shinyWidgets
 ```shinyWidgets```boffers custom widgets and other components to enhance your shiny applications. You can replace classical checkboxes with switch button, add colors to radio buttons and checkbox group, use buttons as radio or checkboxes. Each widget has an update method to change the value of an input from the server. [(1)](https://github.com/dreamRs/shinyWidgets)
