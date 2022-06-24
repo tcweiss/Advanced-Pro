@@ -2,7 +2,7 @@
 # Investing@HSG
 
 Did you ever think about investing but didn't know how?
-![Image](Image.png?) <br>
+![Image](images/Image.png?) <br>
 
 Selecting the right stocks can require a lot of work and expertise. The goal of this project was to develop a tool that simplifies this process and saves investors valuable time. If you are interested, we encourage you to read on and experience it by yourself. Happy investing!
 
