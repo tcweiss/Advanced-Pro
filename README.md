@@ -29,7 +29,9 @@ Investing@HSG was developed by
 
 ### Online
 
-Since we deployed our web-app online, all you need is an internet connection. For best results, we recommend opening the app on a screen with at least 13 inches. Note that it may take a few second for the program to run. Link to app: [Investing@HSG](https://thomas-weiss.shinyapps.io/investing_at_hsg/)
+Since we deployed our web-app online, all you need is an internet connection. For best results, we recommend opening the app on a screen with at least 13 inches. Note that it may take a few second for the program to run. 
+
+Link to app: [Investing@HSG](https://thomas-weiss.shinyapps.io/investing_at_hsg/)
 
 
 ### Locally
