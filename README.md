@@ -27,7 +27,7 @@ The student project "Investing@HSG" is part of the courses "Programming - Introd
 The folder [investing_at_hsg](https://github.com/tcweiss/Advanced-Pro/tree/main/investing_at_hsg) found on this repo includes all relevant files. The file [app.R](https://github.com/tcweiss/Advanced-Pro/blob/main/investing_at_hsg/app.R) is the main script which executes the program. It accesses [functions.R](https://github.com/tcweiss/Advanced-Pro/blob/main/code/functions.R), which includes self-written functions, and [app_data](https://github.com/tcweiss/Advanced-Pro/blob/main/investing_at_hsg/ap_data), which includes multiple datasets.<br>
 A more detailed description on the structure is given below.
 
-<br>
+<br><br>
 <a name="usage"></a>
 ## 2. Technologies/Setup
 
@@ -67,14 +67,14 @@ install.packages(c("shiny",
 
 If everything worked, clone this repo and save it on your machine. Make sure to set your working directory to the 'investing_at_hsg' folder and open the 'app.R' file. Click the 'Run App' button in RStudio and the app should appear on you machine. NOTE: You may have to create an account on Rstudio Connect.
 
-<br>
+<br><br>
 <a name="feat"></a>
 ## 3. Overview of Features
 
 
 
 
-<br>
+<br><br>
 <a name="tech"></a>
 ## 4. Technical Background
 
@@ -140,12 +140,12 @@ Collect the current market value of the share as basis for the recommendation of
 In the last step the program provides the user with a recommendation. Depending on the difference between the implied value per share and the current market value of the share, the program indicates whether it considers the stock to be undervalued, overvalued or efficiently priced. In addition, based on this calculation, the program recommends holding, selling or buying the share.
 
 
-<br>
+<br><br>
 <a name="discl"></a>
 ## 5. Disclaimer
 This valuation model is based on the anticipation of future free cash flows. As with any intrinsic valuation method, it is essential to bear in mind that valuations are not equally applicable to all businesses. While some companies do not even meet the required criteria (e.g. generating positive cash flows), other companies' values are not directly linked to the generation of free cash flows (e.g. Tesla and other companies that are experiencing hype for various reasons). Therefore, it is important to consider the individual context of each company in order to correctly implement the output of this DCF valuation. The delivered value should never be considered as an isolated basis in any decision-making process.
 
-<br>
+<br><br>
 <a name="lib"></a>
 ## 6. Appendix: Library Description
 
