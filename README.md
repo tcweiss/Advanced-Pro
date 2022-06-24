@@ -87,7 +87,7 @@ In addition, the stocks with the highest and lowest return in the past month are
 
 ### Investment Guide
 
-Opening the second tab, one can see two input fields. The input field on the left accepts text in the form of SP500 stock tickers. If the user enters a ticker, a 12-month forecast of the stock price and a BUY/HOLD/SELL recommendation will be displayed. The data is scraped directly from CNN Money and is based on the latest analyst estimates. Note that incorrect inputs will not be processed. 
+An input field on the left accepts text in the form of SP500 stock tickers. If the user enters a ticker, a 12-month forecast of the stock price and a BUY/HOLD/SELL recommendation will be displayed. The data is scraped from CNN Money and is based on the latest analyst estimates. Note that incorrect inputs will not be processed. 
 
 
 ![Gif](images/tab_2_use_1.gif?) <br>
