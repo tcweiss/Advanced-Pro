@@ -15,7 +15,9 @@ Selecting the right stocks can require a lot of work and expertise. The goal of 
 <br><br>
 <a name="desc"></a>
 ## 1. General Information
-The student project "Investing@HSG" is part of the courses "Programming - Introduction Level" & "Programming with Advanced Computer Languages" by Mario Silic at the University of St. Gallen (HSG). Investing@HSG is an interactive web application and can display historical market data, provide forecasts on future stock prices and optimize stock portfolios. It was developed by
+The student project "Investing@HSG" is part of the courses "Programming - Introduction Level" & "Programming with Advanced Computer Languages" by Mario Silic at the University of St. Gallen (HSG). It is an interactive web application and can display historical market data, provide forecasts on future stock prices and optimize stock portfolios. 
+
+Investing@HSG was developed by
 - Armin Begic (20-614-582)
 - Samuell Duerr (20-609-855)
 - Sebastian Tragust (17-620-220)
