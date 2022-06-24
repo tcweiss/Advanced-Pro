@@ -22,8 +22,7 @@ The student project "Investing@HSG" is part of the courses "Programming - Introd
 - Sebastian Tragust (17-620-220)
 - Thomas Weiss (17-620-360)
 
-<br><br>
-**Please note:**
+**Please note:** <br>
 The folder [investing_at_hsg](https://github.com/tcweiss/Advanced-Pro/tree/main/investing_at_hsg) found on this repo includes all relevant files. The file [app.R](https://github.com/tcweiss/Advanced-Pro/blob/main/investing_at_hsg/app.R) is the main script which executes the program. It accesses [functions.R](https://github.com/tcweiss/Advanced-Pro/blob/main/code/functions.R), which includes self-written functions, and [app_data](https://github.com/tcweiss/Advanced-Pro/blob/main/investing_at_hsg/ap_data), which includes multiple datasets.<br>
 A more detailed description on the structure is given below.
 
@@ -141,7 +140,7 @@ In the last step the program provides the user with a recommendation. Depending 
 
 
 <br><br>
-<a name="discl"></a>
+<a name="disc"></a>
 ## 5. Disclaimer
 This valuation model is based on the anticipation of future free cash flows. As with any intrinsic valuation method, it is essential to bear in mind that valuations are not equally applicable to all businesses. While some companies do not even meet the required criteria (e.g. generating positive cash flows), other companies' values are not directly linked to the generation of free cash flows (e.g. Tesla and other companies that are experiencing hype for various reasons). Therefore, it is important to consider the individual context of each company in order to correctly implement the output of this DCF valuation. The delivered value should never be considered as an isolated basis in any decision-making process.
 
