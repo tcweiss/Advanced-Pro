@@ -220,16 +220,18 @@ get_forecasts_plot <- function(x) {
   # Create empty list to store results.
   ls <- list()
 
-  # Get price forecasts, price history and price today.
+  # Get price forecasts, price history and price today, store
+  # length of price history.
   price_fc <- get_forecasts(x)
   price_hist <- get_prices(x) %>%
     select(-symbol)
   price_today <- tail(price_hist$close, 1)
+  len <- nrow(price_hist)
 
   # Expand price history by one year and fill new rows with with NA, then add
   # three more empty columns for estimate series (low/median/high).
   add <- tibble("date" = (price_hist$date + years(1)),
-                "close" = rep(NA, 252))
+                "close" = rep(NA, len))
 
   price_hist <- rbind(price_hist, add)
   price_hist$low <- NA_real_
@@ -241,11 +243,11 @@ get_forecasts_plot <- function(x) {
   for(i in c("low", "median", "high")) {
 
     # Compute linear series from today to estimate.
-    series <- seq(price_today, pull(price_fc[i]), length = 252)
+    series <- seq(price_today, pull(price_fc[i]), length = len)
 
     # Add NA values for time past year before to get complete series over 2 years,
     # then insert into respective column.
-    price_hist[i] <- c(rep(NA_real_, 252), series)
+    price_hist[i] <- c(rep(NA_real_, len), series)
 
   }
 
@@ -271,7 +273,6 @@ get_forecasts_plot <- function(x) {
   return(ls)
 
 }
-
 
 #########################################
 ##       PORTFOLIO OPTIMIZATION        ##
