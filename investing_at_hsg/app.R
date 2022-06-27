@@ -22,7 +22,7 @@ library(qs),
 library(timetk),
 library(dygraphs),
 library(PortfolioAnalytics)))
-source("code/functions.R")
+source("functions.R")
 
 # Import data from 'app_data' folder.
 bench <- read_feather("app_data/bench.feather")
