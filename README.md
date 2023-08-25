@@ -1,11 +1,6 @@
 
 # Investing@HSG
 
-Did you ever think about investing but didn't know how?
-![Image](images/Image.png?) <br>
-
-Selecting the right stocks can require a lot of work and expertise. The goal of this project was to develop a tool that simplifies this process and saves investors valuable time. If you are interested, we encourage you to read on and experience it by yourself. Happy investing!
-
 1. [ General Information ](#desc)
 2. [ Running the Project ](#usage)
 3. [ Overview of Features ](#feat)
@@ -15,13 +10,7 @@ Selecting the right stocks can require a lot of work and expertise. The goal of 
 <br><br>
 <a name="desc"></a>
 ## 1. General Information
-The student project "Investing@HSG" is part of the courses "Programming - Introduction Level" & "Programming with Advanced Computer Languages" by Mario Silic at the University of St. Gallen (HSG). It is an interactive web application and can display historical market data, provide forecasts on future stock prices and optimize stock portfolios. 
-
-Investing@HSG was developed by
-- Armin Begic (20-614-582)
-- Samuell Duerr (20-609-855)
-- Sebastian Tragust (17-620-220)
-- Thomas Weiss (17-620-360)
+This is an interactive web application that displays historical market data, provides analyst's stock forecasts, and optimizes stock portfolios using the standard Markowitz-routine. It was submitted as part of a project in a coding-oriented university course, and is *not* meant to provide serious investment advice.
 
 
 <a name="usage"></a>
@@ -29,7 +18,7 @@ Investing@HSG was developed by
 
 ### Online
 
-Since we deployed our web-app online, all you need is an internet connection. For best results, we recommend opening the app on a screen with at least 13 inches. Note that it may take a few second for the program to run. 
+Since I deployed the web-app online, all you need is an internet connection. For best results, I recommend opening the app on a screen with at least 13''. Note that it may take a few second for the program to run. 
 
 Link to app: [Investing@HSG](https://thomas-weiss.shinyapps.io/investing_at_hsg/)
 
@@ -75,7 +64,7 @@ The 'Market Info' tab offers the possibility to compare historical stock prices.
 
 ### Market Info
 
-A panel on the left side allows to control what is displayed. The user can choose from all stocks in the SP500 as well as popular benchmark indices. One can also set different time horizons and decide whether prices should be standardized or not. If the input changes, the lineplot is updated accordingly, and the table below displays monthly return statistics of the selected stocks.
+A panel on the left side allows to control what is displayed. The user can choose from all stocks in the S&P 500 as well as some popular benchmark indices. One can also set different time horizons and decide whether prices should be standardized or not. If the input changes, the lineplot is updated accordingly, and the table below displays monthly return statistics of the selected stocks.
 
 
 ![Gif](images/tab_1_use.gif?) <br>
