@@ -10,7 +10,7 @@
 <br><br>
 <a name="desc"></a>
 ## 1. General Information
-This is an interactive web application that displays historical market data, provides analyst's stock forecasts, and optimizes stock portfolios using the standard Markowitz-routine. It was submitted as part of a project in a coding-oriented university course - it is NOT meant to provide serious investment advice. 
+This is an interactive web application that displays historical market data, provides analyst's stock forecasts, and optimizes stock portfolios using the standard Markowitz-routine. It was submitted as part of a coding-oriented university course, and does NOT provide serious investment advice. Everything runs on R and the R Shiny library.
 
 <br><br>
 
